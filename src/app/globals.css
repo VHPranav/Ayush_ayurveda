@@ -1,1 +1,213 @@
 @import "tailwindcss";
+@import "lenis/dist/lenis.css";
+
+@theme {
+  /* Montenegro palette — sea, mountain, stone and olive */
+  --color-ivory: #f6f3ec;
+  --color-sand: #ebe4d6;
+  --color-stone: #cfc4b0;
+  --color-stone-deep: #8f8676;
+  --color-adriatic: #1c3a4b;
+  --color-adriatic-deep: #102634;
+  --color-sea: #4c7a8c;
+  --color-olive: #5c6b46;
+  --color-forest: #2e3d2f;
+  --color-gold: #b39a62;
+  --color-ink: #1c2521;
+  --color-muted: #5e6660;
+
+  --font-display: var(--font-cormorant), "Cormorant Garamond", Georgia, serif;
+  --font-sans: var(--font-jost), "Jost", system-ui, sans-serif;
+
+  --ease-calm: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+html {
+  background: var(--color-ivory);
+  color: var(--color-ink);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-weight: 300;
+  background: var(--color-ivory);
+}
+
+::selection {
+  background: var(--color-adriatic);
+  color: var(--color-ivory);
+}
+
+@utility eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.6875rem;
+  font-weight: 400;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+}
+
+/* Main heading style: Cormorant Garamond 300, 80px / 88px on desktop,
+   scaled down in the same 1.1 ratio on smaller screens. */
+@utility heading-display {
+  font-family: var(--font-display);
+  font-style: normal;
+  font-weight: 300;
+  font-size: 2.75rem;
+  line-height: 3.025rem;
+  @media (width >= 48rem) {
+    font-size: 3.75rem;
+    line-height: 4.125rem;
+  }
+  @media (width >= 64rem) {
+    font-size: 80px;
+    line-height: 88px;
+  }
+}
+
+@utility container-page {
+  width: 100%;
+  max-width: 88rem;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+  @media (width >= 48rem) {
+    padding-inline: 2.5rem;
+  }
+  @media (width >= 80rem) {
+    padding-inline: 4rem;
+  }
+}
+
+/* Slow sunlight drifting over the hero landscape */
+@keyframes sunlight {
+  0%,
+  100% {
+    transform: translate3d(-8%, -4%, 0) scale(1);
+    opacity: 0.55;
+  }
+  50% {
+    transform: translate3d(6%, 3%, 0) scale(1.08);
+    opacity: 0.8;
+  }
+}
+
+.animate-sunlight {
+  animation: sunlight 22s ease-in-out infinite;
+}
+
+/* Gentle shimmer on water reflections */
+@keyframes shimmer {
+  0%,
+  100% {
+    opacity: 0.25;
+    transform: translateX(-2%);
+  }
+  50% {
+    opacity: 0.45;
+    transform: translateX(2%);
+  }
+}
+
+.animate-shimmer {
+  animation: shimmer 9s ease-in-out infinite;
+}
+
+@keyframes scroll-cue {
+  0% {
+    transform: scaleY(0);
+    transform-origin: top;
+  }
+  45% {
+    transform: scaleY(1);
+    transform-origin: top;
+  }
+  55% {
+    transform: scaleY(1);
+    transform-origin: bottom;
+  }
+  100% {
+    transform: scaleY(0);
+    transform-origin: bottom;
+  }
+}
+
+.animate-scroll-cue {
+  animation: scroll-cue 2.8s var(--ease-calm) infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-sunlight,
+  .animate-shimmer,
+  .animate-scroll-cue {
+    animation: none;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Hero entrance — pure CSS so it plays on first paint, before hydration */
+@keyframes hero-reveal {
+  from {
+    opacity: 0;
+    transform: scale(1.16);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1.03);
+  }
+}
+
+@keyframes rise-line {
+  from {
+    transform: translateY(105%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.hero-reveal {
+  animation:
+    hero-reveal 4.2s var(--ease-calm) both,
+    fade-in 1.8s ease-out both;
+}
+.rise-line {
+  animation: rise-line 1.4s var(--ease-calm) both;
+}
+.fade-rise {
+  animation: fade-rise 1.2s var(--ease-calm) both;
+}
+.fade-in {
+  animation: fade-in 1.5s ease-out both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-reveal,
+  .rise-line,
+  .fade-rise,
+  .fade-in {
+    animation: none;
+  }
+}
