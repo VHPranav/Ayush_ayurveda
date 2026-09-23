@@ -1,6 +1,8 @@
 // Placeholder photography (Unsplash licence). Replace each `src` with the
 // client's own Montenegro photography once available — keys stay the same.
-const unsplash = (id: string) => `https://images.unsplash.com/${id}?auto=format&fit=crop`;
+// Cap the source at 2400px: the raw originals are 5–12 MB, which made the Next image
+// optimiser time out. 2400px is still larger than any size the page displays.
+const unsplash = (id: string) => `https://images.unsplash.com/${id}?auto=format&fit=crop&w=2400&q=80`;
 
 export type Photo = { src: string; alt: string };
 
@@ -61,13 +63,13 @@ export const photos = {
     src: unsplash("photo-1573590330099-d6c7355ec595"),
     alt: "A woman practising yoga beside calm water at golden hour",
   },
-  harvestTable: {
-    src: unsplash("photo-1768573507890-535afb364aef"),
-    alt: "Pomegranates, figs and seasonal produce on an old stone table",
+  nourishingBowl: {
+    src: unsplash("photo-1511690656952-34342bb7c2f2"),
+    alt: "A plant-based Mediterranean bowl of chickpeas, fresh vegetables, figs and herbs on a wooden table",
   },
   treatmentRoom: {
-    src: unsplash("photo-1630835425197-50feeba99ecd"),
-    alt: "A calm, light-filled treatment room with natural materials",
+    src: unsplash("photo-1611920630418-f587fdc3bf94"),
+    alt: "A warm, softly lit treatment room with a timber floor and a prepared treatment bed",
   },
   stoneBath: {
     src: unsplash("photo-1781795035627-fa93f2863bba"),
@@ -77,9 +79,9 @@ export const photos = {
     src: unsplash("photo-1731597076108-f3bbe268162f"),
     alt: "A minimal treatment room with timber shelving and natural oils",
   },
-  hotelSpa: {
-    src: unsplash("photo-1776763018829-ad685e621871"),
-    alt: "Loungers of stone and timber beside a calm hotel spa pool",
+  budvaHotel: {
+    src: unsplash("photo-1780852611112-a34a015bb848"),
+    alt: "A hotel pool framed by a stone arcade and cypress trees in Budva, Montenegro",
   },
   herbalTea: {
     src: unsplash("photo-1571934811356-5cc061b6821f"),

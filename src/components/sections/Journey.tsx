@@ -48,7 +48,7 @@ function Intro({ className = "" }: { className?: string }) {
       </p>
       <h2 className="mt-6 heading-display">
         Your Personalised
-        <span className="block text-stone">Journey</span>
+        <span className="block text-sage">Journey</span>
       </h2>
       <p className="mt-6 max-w-sm leading-relaxed text-ivory/70">
         From the first consultation to lasting wellbeing — a clear, professionally supervised path, shaped around you.
@@ -59,7 +59,7 @@ function Intro({ className = "" }: { className?: string }) {
 
 function StepCard({ step, index }: { step: (typeof steps)[number]; index: number }) {
   return (
-    <article className="group relative w-full shrink-0 overflow-hidden rounded-sm bg-adriatic md:w-[26rem]">
+    <article className="group relative w-full shrink-0 overflow-hidden rounded-sm bg-forest-deep md:w-[26rem]">
       <div className="relative aspect-[4/3] overflow-hidden md:aspect-[4/5]">
         <Image
           src={step.photo.src}
@@ -69,7 +69,7 @@ function StepCard({ step, index }: { step: (typeof steps)[number]; index: number
           sizes="(min-width: 768px) 26rem, 100vw"
           className="object-cover opacity-85 transition-transform duration-[1600ms] ease-[var(--ease-calm)] group-hover:scale-[1.04]"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-adriatic-deep via-adriatic-deep/30 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-forest-deep via-forest-deep/30 to-transparent" />
       </div>
       <div className="absolute inset-x-0 bottom-0 p-7">
         <p className="eyebrow text-[0.6rem] text-gold">Phase 0{index + 1}</p>
@@ -116,7 +116,7 @@ function PinnedJourney() {
   const fill = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
 
   return (
-    <section ref={section} className="relative h-[420vh] bg-adriatic-deep text-ivory">
+    <section ref={section} className="relative h-[420vh] bg-forest text-ivory">
       <div className="sticky top-0 flex h-screen flex-col justify-center overflow-hidden">
         <motion.div ref={track} style={{ x }} className="flex items-center gap-8 pr-[8vw] pl-[max(4rem,calc((100vw-88rem)/2+4rem))] will-change-transform">
           <Intro className="w-[34rem] shrink-0 pr-8" />
@@ -143,7 +143,7 @@ function PinnedJourney() {
 /** Mobile and reduced motion: a simple vertical sequence. */
 function StackedJourney({ className = "" }: { className?: string }) {
   return (
-    <section className={`bg-adriatic-deep py-24 text-ivory ${className}`}>
+    <section className={`bg-forest py-24 text-ivory ${className}`}>
       <div className="container-page">
         <Reveal>
           <Intro />

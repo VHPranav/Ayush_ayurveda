@@ -12,6 +12,8 @@
   --color-sea: #4c7a8c;
   --color-olive: #5c6b46;
   --color-forest: #2e3d2f;
+  --color-forest-deep: #1f2a20;
+  --color-sage: #b7c09a;
   --color-gold: #b39a62;
   --color-ink: #1c2521;
   --color-muted: #5e6660;
@@ -208,6 +210,25 @@ body {
   .rise-line,
   .fade-rise,
   .fade-in {
+    animation: none;
+  }
+}
+
+/* Tide transition — waves drift sideways in a seamless loop */
+@keyframes tide {
+  to {
+    transform: translateX(-50%);
+  }
+}
+.animate-tide {
+  animation: tide 16s linear infinite;
+}
+.animate-tide-slow {
+  animation: tide 24s linear infinite reverse;
+}
+@media (prefers-reduced-motion: reduce) {
+  .animate-tide,
+  .animate-tide-slow {
     animation: none;
   }
 }

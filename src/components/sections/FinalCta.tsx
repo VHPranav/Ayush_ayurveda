@@ -7,11 +7,11 @@ import { photos } from "@/lib/images";
 import { Button } from "../ui/Button";
 import { Reveal } from "../ui/Reveal";
 
-/** Closing banner: the light slowly warms towards sunset as it scrolls into view. */
+/** Closing banner: a soft, rosy dusk light gathers as it scrolls into view. */
 export function FinalCta() {
   const ref = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end end"] });
-  const sunset = useTransform(scrollYProgress, [0.1, 1], [0, 0.75]);
+  const sunset = useTransform(scrollYProgress, [0.1, 1], [0, 0.6]);
   const glowY = useTransform(scrollYProgress, [0, 1], ["-10%", "25%"]);
   const imageScale = useTransform(scrollYProgress, [0, 1], [1.12, 1]);
 
@@ -21,14 +21,14 @@ export function FinalCta() {
         <Image src={photos.budvaCoast.src} alt={photos.budvaCoast.alt} fill quality={70} sizes="100vw" className="object-cover" />
       </motion.div>
 
-      {/* Warm evening light */}
+      {/* Soft dusk light */}
       <motion.div
         style={{ opacity: sunset }}
-        className="absolute inset-0 bg-[linear-gradient(180deg,rgba(230,160,110,0.55)_0%,rgba(190,120,110,0.35)_35%,rgba(16,38,52,0.2)_70%)] mix-blend-multiply"
+        className="absolute inset-0 bg-[linear-gradient(180deg,rgba(226,196,204,0.45)_0%,rgba(196,178,200,0.25)_40%,transparent_75%)] mix-blend-soft-light"
       />
       <motion.div
         style={{ opacity: sunset, y: glowY }}
-        className="pointer-events-none absolute top-0 left-1/2 h-[70%] w-[90%] -translate-x-1/2 rounded-full bg-[radial-gradient(closest-side,rgba(255,205,150,0.55),transparent)] mix-blend-screen"
+        className="pointer-events-none absolute top-0 left-1/2 h-[70%] w-[90%] -translate-x-1/2 rounded-full bg-[radial-gradient(closest-side,rgba(255,236,226,0.4),transparent)] mix-blend-screen"
       />
       <div className="absolute inset-0 bg-gradient-to-t from-adriatic-deep/85 via-adriatic-deep/30 to-transparent" />
       <div className="absolute inset-0 bg-gradient-to-r from-adriatic-deep/60 via-adriatic-deep/20 to-transparent" />

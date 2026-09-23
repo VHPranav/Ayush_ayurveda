@@ -17,7 +17,9 @@ type Brand = {
   items: string[];
   cta: string;
   photo: Photo;
+  /** Brand colour: AYUSH = olive, VIVUM = sea blue. */
   accent: string;
+  accentText: string;
 };
 
 const brands: Brand[] = [
@@ -36,8 +38,9 @@ const brands: Brand[] = [
       "Progress reviews and follow-up care",
     ],
     cta: "Explore Therapeutic Programmes",
-    photo: photos.stoneBath,
+    photo: photos.treatmentRoom,
     accent: "bg-olive",
+    accentText: "text-olive",
   },
   {
     id: "vivum",
@@ -56,6 +59,7 @@ const brands: Brand[] = [
     cta: "Explore Wellness Journeys",
     photo: photos.svetiStefan,
     accent: "bg-sea",
+    accentText: "text-sea",
   },
 ];
 
@@ -209,7 +213,7 @@ function DetailsBody({ brand, visible, compact = false }: { brand: Brand; visibl
     <>
       <p style={delay(0)} className={`eyebrow flex items-center gap-3 text-stone-deep ${fx}`}>
         <span className={`h-1.5 w-1.5 rounded-full ${brand.accent}`} />
-        {brand.name} · {brand.eyebrow}
+        <span className={brand.accentText}>{brand.name}</span> · {brand.eyebrow}
       </p>
       <h3
         style={delay(1)}
@@ -232,7 +236,7 @@ function DetailsBody({ brand, visible, compact = false }: { brand: Brand; visibl
               compact ? "py-2.5 text-[0.85rem] xl:py-3.5 xl:text-[0.95rem]" : "py-3.5 text-[0.95rem]"
             } ${fx}`}
           >
-            <LeafBullet />
+            <LeafBullet className={brand.accentText} />
             {item}
           </li>
         ))}
@@ -241,9 +245,9 @@ function DetailsBody({ brand, visible, compact = false }: { brand: Brand; visibl
   );
 }
 
-function LeafBullet() {
+function LeafBullet({ className }: { className: string }) {
   return (
-    <svg viewBox="0 0 16 16" aria-hidden className="mt-1 h-3.5 w-3.5 shrink-0 text-olive" fill="none" stroke="currentColor">
+    <svg viewBox="0 0 16 16" aria-hidden className={`mt-1 h-3.5 w-3.5 shrink-0 ${className}`} fill="none" stroke="currentColor">
       <path d="M2 14C2 7 7 2 14 2c0 7-5 12-12 12Z" strokeWidth={1} />
       <path d="M2 14 10 6" strokeWidth={0.8} />
     </svg>
