@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import { ParallaxFill } from "@/components/ui/ParallaxFill";
 import { useLayoutEffect, useRef, useState } from "react";
 import { motion, useReducedMotion, useScroll, useTransform, type MotionValue } from "motion/react";
 import { photos, type Photo } from "@/lib/images";
@@ -61,10 +61,9 @@ function StepCard({ step, index }: { step: (typeof steps)[number]; index: number
   return (
     <article className="group relative w-full shrink-0 overflow-hidden rounded-sm bg-forest-deep md:w-[26rem]">
       <div className="relative aspect-[4/3] overflow-hidden md:aspect-[4/5]">
-        <Image
+        <ParallaxFill
           src={step.photo.src}
           alt={step.photo.alt}
-          fill
           quality={70}
           sizes="(min-width: 768px) 26rem, 100vw"
           className="object-cover opacity-85 transition-transform duration-[1600ms] ease-[var(--ease-calm)] group-hover:scale-[1.04]"

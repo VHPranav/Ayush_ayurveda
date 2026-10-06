@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Image from "next/image";
+import { ParallaxFill } from "@/components/ui/ParallaxFill";
 import { photos } from "@/lib/images";
 import { Reveal } from "@/components/ui/Reveal";
 import { Button } from "@/components/ui/Button";
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 const philosophy = ["Balance", "Relaxation", "Movement", "Nourishment", "Rest", "Mindfulness", "Connection"];
 
 const seasons = [
-  { season: "Spring", name: "Renew & Rebalance", months: "March – May", photo: photos.oliveBranch, body: "Fresh mornings, gentle Yoga and light seasonal food as the coast comes back to life." },
+  { season: "Spring", name: "Renew & Rebalance", months: "March – May", photo: photos.flowCourtyard, body: "Fresh mornings, gentle Yoga and light seasonal food as the coast comes back to life." },
   { season: "Summer", name: "Adriatic Wellness Escape", months: "June – August", photo: photos.yogaByTheSea, body: "Sea swims, sunrise practice and long evenings — wellness with the Adriatic at its heart." },
   { season: "Autumn", name: "Stress Reset & Reconnect", months: "September – November", photo: photos.mountainLake, body: "Quieter bays and mountain walks to slow down, reset and reconnect." },
   { season: "Winter", name: "Deep Rest & Renewal", months: "December – February", photo: photos.stoneBath, body: "Warming therapies, restorative Yoga and deep rest in the calm of the off-season." },
@@ -50,7 +50,7 @@ export default function VivumPage() {
           </h1>
         </div>
         <div className="hero-reveal relative aspect-[3/4] overflow-hidden rounded-t-full lg:col-span-4 lg:col-start-9">
-          <Image src={photos.svetiStefan.src} alt={photos.svetiStefan.alt} fill preload quality={80} sizes="(min-width: 1024px) 33vw, 100vw" className="object-cover" />
+          <ParallaxFill src={photos.svetiStefan.src} alt={photos.svetiStefan.alt} preload quality={80} sizes="(min-width: 1024px) 33vw, 100vw" className="object-cover" />
         </div>
       </section>
 
@@ -103,7 +103,7 @@ export default function VivumPage() {
           {seasons.map((s, i) => (
             <Reveal key={s.season} delay={0.08 * i}>
               <article className="group relative aspect-[3/4] overflow-hidden rounded-[2rem]">
-                <Image src={s.photo.src} alt={s.photo.alt} fill quality={70} sizes="(min-width: 1280px) 24vw, (min-width: 640px) 45vw, 100vw" className="object-cover transition-transform duration-[1600ms] ease-[var(--ease-calm)] group-hover:scale-[1.06]" />
+                <ParallaxFill src={s.photo.src} alt={s.photo.alt} quality={70} sizes="(min-width: 1280px) 24vw, (min-width: 640px) 45vw, 100vw" className="object-cover transition-transform duration-[1600ms] ease-[var(--ease-calm)] group-hover:scale-[1.06]" />
                 <div className="absolute inset-0 bg-gradient-to-t from-adriatic-deep/85 via-adriatic-deep/20 to-transparent" />
                 <div className="absolute inset-x-0 bottom-0 p-7 text-ivory">
                   <p className="eyebrow text-[0.58rem] text-sage">
@@ -139,11 +139,11 @@ export default function VivumPage() {
 
           <div className="mt-20 grid gap-6 lg:grid-cols-2">
             {[
-              { title: "Corporate wellness", body: "Wellbeing days, team retreats and leadership programmes combining Yoga, mindful movement, healthy food and time in nature.", photo: photos.kotorRooftops },
-              { title: "Hotel wellness", body: "Ayurveda-inspired wellness menus, Yoga and retreat programmes delivered in partnership with hotels and resorts in Montenegro.", photo: photos.budvaHotel },
+              { title: "Corporate wellness", body: "Wellbeing days, team retreats and leadership programmes combining Yoga, mindful movement, healthy food and time in nature.", photo: photos.flowYogaPavilion },
+              { title: "Hotel wellness", body: "Ayurveda-inspired wellness menus, Yoga and retreat programmes delivered in partnership with hotels and resorts in Montenegro.", photo: photos.flowArchPool },
             ].map((c, i) => (
               <Reveal key={c.title} delay={0.1 * i} className="group relative flex min-h-[26rem] items-end overflow-hidden rounded-[2rem] p-10 text-ivory">
-                <Image src={c.photo.src} alt={c.photo.alt} fill quality={70} sizes="(min-width: 1024px) 45vw, 100vw" className="object-cover transition-transform duration-[1600ms] ease-[var(--ease-calm)] group-hover:scale-[1.04]" />
+                <ParallaxFill src={c.photo.src} alt={c.photo.alt} quality={70} sizes="(min-width: 1024px) 45vw, 100vw" className="object-cover transition-transform duration-[1600ms] ease-[var(--ease-calm)] group-hover:scale-[1.04]" />
                 <div className="absolute inset-0 bg-gradient-to-t from-adriatic-deep/90 to-adriatic-deep/10" />
                 <div className="relative">
                   <h3 className="font-display text-4xl font-light">{c.title}</h3>

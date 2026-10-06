@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Image from "next/image";
+import { ParallaxFill } from "@/components/ui/ParallaxFill";
 import { photos } from "@/lib/images";
 import { StageTimeline } from "@/components/pages/StageTimeline";
 import { ParallaxImage } from "@/components/ui/ParallaxImage";
@@ -85,7 +85,7 @@ export default function MontenegroPage() {
       {/* Cinematic hero */}
       <section className="relative flex min-h-[100svh] items-end overflow-hidden bg-adriatic-deep text-ivory">
         <div className="hero-reveal absolute inset-0">
-          <Image src={photos.ladyOfTheRocks.src} alt={photos.ladyOfTheRocks.alt} fill preload quality={80} sizes="100vw" className="object-cover" />
+          <ParallaxFill src={photos.ladyOfTheRocks.src} alt={photos.ladyOfTheRocks.alt} preload quality={80} sizes="100vw" className="object-cover" />
         </div>
         <div className="absolute inset-0 bg-gradient-to-t from-adriatic-deep via-adriatic-deep/30 to-adriatic-deep/40" />
         <div className="container-page relative grid gap-10 pb-20 md:pb-28 lg:grid-cols-12">
@@ -243,7 +243,7 @@ export default function MontenegroPage() {
       <section className="bg-ivory py-28 md:py-36">
         <div className="container-page grid items-center gap-14 lg:grid-cols-12">
           <Reveal className="relative aspect-[4/3] overflow-hidden rounded-[2rem] lg:col-span-7">
-            <Image src={photos.budvaHotel.src} alt={photos.budvaHotel.alt} fill quality={75} sizes="(min-width: 1024px) 55vw, 100vw" className="object-cover" />
+            <ParallaxFill src={photos.flowArchPool.src} alt={photos.flowArchPool.alt} quality={75} sizes="(min-width: 1024px) 55vw, 100vw" className="object-cover" />
           </Reveal>
           <Reveal delay={0.1} className="lg:col-span-4 lg:col-start-9">
             <Eyebrow>Accommodation</Eyebrow>

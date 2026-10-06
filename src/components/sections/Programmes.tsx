@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { ParallaxFill } from "@/components/ui/ParallaxFill";
 import Link from "next/link";
 import { useState } from "react";
 import { photos, type Photo } from "@/lib/images";
@@ -129,10 +130,9 @@ export function Programmes() {
                     }`}
                   >
                     {/* Photo: fades away while any programme is being explored, leaving the frame */}
-                    <Image
+                    <ParallaxFill
                       src={p.photo.src}
                       alt={p.photo.alt}
-                      fill
                       quality={70}
                       sizes="(min-width: 1024px) 40vw, 100vw"
                       className={`object-cover transition-opacity duration-700 ${engaged ? "opacity-0" : "opacity-100"}`}
@@ -183,10 +183,9 @@ export function Programmes() {
             <Reveal key={p.title} delay={i * 0.12} className="w-[80%] shrink-0 snap-start md:w-auto">
               <Link href={p.href} className="group block">
                 <div className="relative aspect-[3/4] overflow-hidden rounded-sm">
-                  <Image
+                  <ParallaxFill
                     src={p.photo.src}
                     alt={p.photo.alt}
-                    fill
                     quality={70}
                     sizes="(min-width: 768px) 45vw, 80vw"
                     className="object-cover"

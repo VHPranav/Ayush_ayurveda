@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import { ParallaxFill } from "@/components/ui/ParallaxFill";
 import { useState } from "react";
 import { photos, type Photo } from "@/lib/images";
 import { Reveal, RevealImage } from "../ui/Reveal";
@@ -38,7 +38,7 @@ const brands: Brand[] = [
       "Progress reviews and follow-up care",
     ],
     cta: "Explore Therapeutic Programmes",
-    photo: photos.treatmentRoom,
+    photo: photos.flowTreatmentRoom,
     accent: "bg-olive",
     accentText: "text-olive",
   },
@@ -146,10 +146,9 @@ function BrandImage({
         hidden ? "pointer-events-none opacity-0" : "opacity-100"
       }`}
     >
-      <Image
+      <ParallaxFill
         src={brand.photo.src}
         alt={brand.photo.alt}
-        fill
         quality={70}
         sizes="(min-width: 768px) 45vw, 100vw"
         className={`object-cover transition-transform duration-[2000ms] ease-[var(--ease-calm)] ${

@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { ParallaxFill } from "@/components/ui/ParallaxFill";
 import type { Photo } from "@/lib/images";
 import { Reveal } from "./Reveal";
 import { Button } from "./Button";
@@ -63,7 +63,7 @@ export function BookingBand({
 }) {
   return (
     <section className="relative overflow-hidden bg-adriatic-deep py-28 text-ivory md:py-40">
-      <Image src={photo.src} alt="" fill quality={70} sizes="100vw" className="object-cover opacity-45" />
+      <ParallaxFill src={photo.src} alt="" quality={70} sizes="100vw" className="object-cover opacity-45" />
       <div className="absolute inset-0 bg-gradient-to-r from-adriatic-deep/90 via-adriatic-deep/60 to-adriatic-deep/20" />
       <div className="container-page relative">
         <Reveal className="max-w-2xl">

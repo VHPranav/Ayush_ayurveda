@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Image from "next/image";
+import { ParallaxFill } from "@/components/ui/ParallaxFill";
 import Link from "next/link";
 import { photos } from "@/lib/images";
 import { ParallaxImage } from "@/components/ui/ParallaxImage";
@@ -92,7 +92,7 @@ export default function AyushPage() {
           </h1>
         </div>
         <div className="hero-reveal relative mx-auto aspect-[21/9] w-full max-w-[110rem] overflow-hidden">
-          <Image src={photos.stoneBath.src} alt={photos.stoneBath.alt} fill preload quality={80} sizes="100vw" className="object-cover" />
+          <ParallaxFill src={photos.flowTreatmentRoom.src} alt={photos.flowTreatmentRoom.alt} preload quality={80} sizes="100vw" className="object-cover" />
         </div>
       </section>
 
@@ -123,7 +123,7 @@ export default function AyushPage() {
               <Reveal key={p.name} delay={0.1 * i} className={i === 1 ? "lg:mt-20" : ""}>
                 <Link href={p.href} className="group block">
                   <div className="relative aspect-[3/4] overflow-hidden rounded-t-full">
-                    <Image src={p.photo.src} alt={p.photo.alt} fill quality={70} sizes="(min-width: 1024px) 30vw, 100vw" className="object-cover transition-transform duration-[1600ms] ease-[var(--ease-calm)] group-hover:scale-[1.05]" />
+                    <ParallaxFill src={p.photo.src} alt={p.photo.alt} quality={70} sizes="(min-width: 1024px) 30vw, 100vw" className="object-cover transition-transform duration-[1600ms] ease-[var(--ease-calm)] group-hover:scale-[1.05]" />
                   </div>
                   <p className="eyebrow mt-6 text-[0.6rem] text-olive">{p.country}</p>
                   <div className="mt-2 flex items-center justify-between">
@@ -201,7 +201,7 @@ export default function AyushPage() {
             </ul>
           </Reveal>
         </div>
-        <ParallaxImage photo={photos.yogaByTheSea} sizes="(min-width: 1024px) 50vw, 100vw" className="order-1 min-h-[60vh] lg:order-2 lg:min-h-[85vh]" />
+        <ParallaxImage photo={photos.flowYogaPavilion} sizes="(min-width: 1024px) 50vw, 100vw" className="order-1 min-h-[60vh] lg:order-2 lg:min-h-[85vh]" />
       </section>
 
       {/* Team */}

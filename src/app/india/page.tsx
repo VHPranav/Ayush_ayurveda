@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Image from "next/image";
+import { ParallaxFill } from "@/components/ui/ParallaxFill";
 import Link from "next/link";
 import { photos } from "@/lib/images";
 import { Reveal } from "@/components/ui/Reveal";
@@ -56,16 +56,16 @@ export default function IndiaPage() {
         </div>
         <div className="container-page grid h-[70vh] min-h-[28rem] grid-cols-4 grid-rows-2 gap-3 md:gap-4">
           <div style={{ animationDelay: "0.2s" }} className="hero-reveal relative col-span-4 row-span-1 overflow-hidden rounded-[1.5rem] md:col-span-2 md:row-span-2">
-            <Image src={photos.keralaHouseboat.src} alt={photos.keralaHouseboat.alt} fill preload quality={80} sizes="(min-width: 768px) 50vw, 100vw" className="object-cover" />
+            <ParallaxFill src={photos.keralaHouseboat.src} alt={photos.keralaHouseboat.alt} preload quality={80} sizes="(min-width: 768px) 50vw, 100vw" className="object-cover" />
           </div>
           <div style={{ animationDelay: "0.3s" }} className="hero-reveal relative col-span-2 overflow-hidden rounded-[1.5rem] md:col-span-1">
-            <Image src={photos.keralaPalms.src} alt={photos.keralaPalms.alt} fill quality={70} sizes="25vw" className="object-cover" />
+            <ParallaxFill src={photos.keralaPalms.src} alt={photos.keralaPalms.alt} quality={70} sizes="25vw" className="object-cover" />
           </div>
           <div style={{ animationDelay: "0.4s" }} className="hero-reveal relative col-span-2 overflow-hidden rounded-[1.5rem] md:col-span-1 md:row-span-2">
-            <Image src={photos.keralaDawn.src} alt={photos.keralaDawn.alt} fill quality={70} sizes="25vw" className="object-cover" />
+            <ParallaxFill src={photos.keralaDawn.src} alt={photos.keralaDawn.alt} quality={70} sizes="25vw" className="object-cover" />
           </div>
           <div style={{ animationDelay: "0.5s" }} className="hero-reveal relative hidden overflow-hidden rounded-[1.5rem] md:block">
-            <Image src={photos.munnarHills.src} alt={photos.munnarHills.alt} fill quality={70} sizes="25vw" className="object-cover" />
+            <ParallaxFill src={photos.munnarHills.src} alt={photos.munnarHills.alt} quality={70} sizes="25vw" className="object-cover" />
           </div>
         </div>
       </section>

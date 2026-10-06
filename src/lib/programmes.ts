@@ -52,7 +52,7 @@ export const programmes: Programme[] = [
     intro:
       "A consultation-led introduction to clinical Ayurveda. Personalised treatments, Yoga, nutrition and a practical home plan — and a professional first step towards longer programmes such as Panchakarma.",
     focus: "Introduction · Assessment · Balance",
-    photo: photos.ladyOfTheRocks,
+    photo: photos.flowHerbs,
     levels: [{ tier: "Discover", days: 5, standard: 1650, promo: 1403, allowance: 75 }],
     phases: [
       {
@@ -98,7 +98,7 @@ export const programmes: Programme[] = [
     intro:
       "Restorative daily therapies, Yoga, Pranayama and meditation, with nutrition and sleep guidance — set against the calm of the Kotor–Risan Bay.",
     focus: "Rest · Nervous-system calm · Sleep",
-    photo: photos.quietShore,
+    photo: photos.flowMeditationDeck,
     levels: [
       { tier: "Reset", days: 7, standard: 1725, promo: 1466, allowance: 100 },
       { tier: "Transform", days: 14, standard: 3450, promo: 2933, allowance: 175 },
@@ -283,7 +283,7 @@ export const programmes: Programme[] = [
     intro:
       "A clinician-led signature journey for healthy ageing, rejuvenation and physical restoration — traditional Rasayana therapies, Varma manual techniques and therapeutic Yoga, beginning with a comprehensive Vaidya consultation.",
     focus: "Rasayana · Varma · Healthy ageing",
-    photo: photos.ancientOlive,
+    photo: photos.flowPindaSwedam,
     levels: [
       { tier: "Transform", days: 14, standard: 5250, promo: 4463, allowance: 200 },
       { tier: "Renew", days: 21, standard: 7875, promo: 6694, allowance: 300 },
@@ -322,7 +322,7 @@ export const programmes: Programme[] = [
     intro:
       "Panchakarma in its complete traditional form — preparation, prescribed cleansing and recovery — delivered under daily physician supervision in the calm of the Bay of Kotor.",
     focus: "Poorvakarma · Shodhana · Paschatkarma",
-    photo: photos.taraRiver,
+    photo: photos.flowShirodhara,
     levels: [
       { tier: "Renew", days: 21, standard: 8400, promo: 7140, allowance: 350 },
       {

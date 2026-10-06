@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Image from "next/image";
+import { ParallaxFill } from "@/components/ui/ParallaxFill";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { euro, getProgramme, programmes } from "@/lib/programmes";
@@ -52,7 +52,7 @@ export default async function ProgrammePage(props: PageProps<"/programmes/[slug]
         </div>
         <div className="relative min-h-[60vh] overflow-hidden lg:min-h-0">
           <div className="hero-reveal absolute inset-0">
-          <Image src={p.photo.src} alt={p.photo.alt} fill preload quality={80} sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover" />
+          <ParallaxFill src={p.photo.src} alt={p.photo.alt} preload quality={80} sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover" />
           <div className="absolute inset-0 bg-gradient-to-t from-adriatic-deep/40 to-transparent" />
           </div>
           <p className="eyebrow absolute bottom-6 left-6 text-[0.6rem] text-ivory/85">AYUSH Montenegro · Hyatt Regency Kotor Bay</p>
@@ -177,7 +177,7 @@ export default async function ProgrammePage(props: PageProps<"/programmes/[slug]
             {related.map((r) => (
               <Link key={r.slug} href={`/programmes/${r.slug}`} className="group block">
                 <div className="relative aspect-[4/3] overflow-hidden rounded-2xl">
-                  <Image src={r.photo.src} alt={r.photo.alt} fill quality={70} sizes="(min-width: 768px) 30vw, 100vw" className="object-cover transition-transform duration-[1600ms] ease-[var(--ease-calm)] group-hover:scale-[1.05]" />
+                  <ParallaxFill src={r.photo.src} alt={r.photo.alt} quality={70} sizes="(min-width: 768px) 30vw, 100vw" className="object-cover transition-transform duration-[1600ms] ease-[var(--ease-calm)] group-hover:scale-[1.05]" />
                 </div>
                 <div className="mt-4 flex items-center justify-between">
                   <h3 className="font-display text-2xl text-adriatic">{r.name}</h3>

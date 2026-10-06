@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { ParallaxFill } from "@/components/ui/ParallaxFill";
 import { useRef, useState } from "react";
 import { motion, useScroll, useTransform } from "motion/react";
 import { photos, type Photo } from "@/lib/images";
@@ -97,10 +98,9 @@ export function Location() {
                 active === i ? "ring-white/50" : "ring-white/15"
               }`}
             >
-              <Image
+              <ParallaxFill
                 src={r.photo.src}
                 alt={r.photo.alt}
-                fill
                 quality={70}
                 sizes="(min-width: 1024px) 35vw, (min-width: 768px) 60vw, 100vw"
                 className="object-cover transition-transform duration-[1600ms] ease-[var(--ease-calm)] group-hover:scale-[1.05]"

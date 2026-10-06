@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Image from "next/image";
+import { ParallaxFill } from "@/components/ui/ParallaxFill";
 import { menu } from "@/lib/treatments";
 import { euro } from "@/lib/programmes";
 import { photos } from "@/lib/images";
@@ -48,7 +48,7 @@ export default function TreatmentsPage() {
       {/* The consultations, featured */}
       <section className="container-page grid items-center gap-12 py-24 lg:grid-cols-2">
         <Reveal className="relative aspect-[4/3] overflow-hidden rounded-[2rem]">
-          <Image src={photos.herbalTea.src} alt={photos.herbalTea.alt} fill quality={75} sizes="(min-width: 1024px) 45vw, 100vw" className="object-cover" />
+          <ParallaxFill src={photos.flowHerbalTea.src} alt={photos.flowHerbalTea.alt} quality={75} sizes="(min-width: 1024px) 45vw, 100vw" className="object-cover" />
         </Reveal>
         <Reveal delay={0.1}>
           <Eyebrow>The foundation</Eyebrow>

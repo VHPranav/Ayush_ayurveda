@@ -116,4 +116,45 @@ export const photos = {
     src: unsplash("photo-1696027356970-b1527cc0d33c"),
     alt: "Tea plantations across the hills of Munnar, Kerala",
   },
+  // Generated with Google Flow (Nano Banana) for AYUSH & VIVUM — /public/images/flow
+  flowTreatmentRoom: {
+    src: "/images/flow/treatment-room-stone.webp",
+    alt: "An Ayurveda treatment room with stone walls, timber beams and a linen-covered bed, the Bay of Kotor beyond the window",
+  },
+  flowShirodhara: {
+    src: "/images/flow/shirodhara-oil.webp",
+    alt: "Warm herbal oil poured from a copper vessel during a Shirodhara treatment",
+  },
+  flowPindaSwedam: {
+    src: "/images/flow/pinda-swedam.webp",
+    alt: "A therapist applying warm herbal poultices during a Pinda Swedam treatment",
+  },
+  flowHerbalTea: {
+    src: "/images/flow/herbal-tea-bay.webp",
+    alt: "Herbal tea on a stone slab on a terrace overlooking the Bay of Kotor",
+  },
+  flowHerbs: {
+    src: "/images/flow/herbs-stone-bowls.webp",
+    alt: "Ayurvedic herbs and salts in stone bowls on a rustic wooden table",
+  },
+  flowApothecary: {
+    src: "/images/flow/apothecary-shelf.webp",
+    alt: "Amber bottles of traditional preparations on a stone shelf",
+  },
+  flowArchPool: {
+    src: "/images/flow/arch-pool-sea.webp",
+    alt: "A resort pool beneath a stone arch, cypresses and the Adriatic beyond",
+  },
+  flowMeditationDeck: {
+    src: "/images/flow/meditation-deck-sea.webp",
+    alt: "A timber meditation deck among olive trees above the sea at dusk",
+  },
+  flowYogaPavilion: {
+    src: "/images/flow/yoga-pavilion-cliff.webp",
+    alt: "A small group practising Yoga in a stone pavilion on a cliff above the sea",
+  },
+  flowCourtyard: {
+    src: "/images/flow/stone-courtyard.webp",
+    alt: "A stone courtyard with a pergola, olive trees and quiet seating",
+  },
 } satisfies Record<string, Photo>;

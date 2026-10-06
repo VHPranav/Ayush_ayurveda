@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Image from "next/image";
+import { ParallaxFill } from "@/components/ui/ParallaxFill";
 import { photos } from "@/lib/images";
 import { Reveal } from "@/components/ui/Reveal";
 import { BookingBand, Eyebrow, Icon, SectionHead } from "@/components/ui/Kit";
@@ -36,7 +36,7 @@ export default function UkPage() {
       {/* Hero with contact card */}
       <section className="relative overflow-hidden bg-adriatic-deep pt-40 pb-20 text-ivory md:pt-48 md:pb-28">
         <div className="hero-reveal absolute inset-0">
-          <Image src={photos.treatmentRoom.src} alt="" fill preload quality={75} sizes="100vw" className="object-cover opacity-40" />
+          <ParallaxFill src={photos.flowTreatmentRoom.src} alt="" preload quality={75} sizes="100vw" className="object-cover opacity-40" />
         </div>
         <div className="absolute inset-0 bg-gradient-to-r from-adriatic-deep via-adriatic-deep/85 to-adriatic-deep/40" />
         <div className="container-page relative grid gap-14 lg:grid-cols-12 lg:items-end">
@@ -158,7 +158,7 @@ export default function UkPage() {
         </Reveal>
       </section>
 
-      <BookingBand photo={photos.ancientOlive} title="Book a consultation in London or online." secondary={{ label: "Montenegro programmes", href: "/montenegro" }} />
+      <BookingBand photo={photos.flowApothecary} title="Book a consultation in London or online." secondary={{ label: "Montenegro programmes", href: "/montenegro" }} />
     </main>
   );
 }

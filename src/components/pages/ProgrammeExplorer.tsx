@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import { ParallaxFill } from "@/components/ui/ParallaxFill";
 import Link from "next/link";
 import { useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
@@ -75,10 +75,9 @@ export function ProgrammeExplorer() {
             >
               <Link href={`/programmes/${p.slug}`} className="group block">
                 <div className="relative aspect-[5/4] overflow-hidden rounded-2xl">
-                  <Image
+                  <ParallaxFill
                     src={p.photo.src}
                     alt={p.photo.alt}
-                    fill
                     quality={70}
                     sizes="(min-width: 1280px) 30vw, (min-width: 768px) 45vw, 100vw"
                     className="object-cover transition-transform duration-[1600ms] ease-[var(--ease-calm)] group-hover:scale-[1.05]"
