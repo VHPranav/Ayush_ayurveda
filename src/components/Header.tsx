@@ -1,50 +1,94 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion, useMotionValueEvent, useScroll } from "motion/react";
 import { Logo } from "./ui/Logo";
-import { navItems } from "@/lib/nav";
+import { lightTopPages, navItems } from "@/lib/nav";
 
 export function Header() {
+  const pathname = usePathname();
   const { scrollY } = useScroll();
-  const [solid, setSolid] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const [menu, setMenu] = useState<string | null>(null);
 
-  useMotionValueEvent(scrollY, "change", (y) => setSolid(y > 80));
+  useMotionValueEvent(scrollY, "change", (y) => setScrolled(y > 80));
 
   useEffect(() => {
     document.documentElement.style.overflow = open ? "hidden" : "";
   }, [open]);
 
+  // Close menus when navigating (state adjusted during render, per React guidance)
+  const [lastPath, setLastPath] = useState(pathname);
+  if (lastPath !== pathname) {
+    setLastPath(pathname);
+    setOpen(false);
+    setMenu(null);
+  }
+
+  const solid = scrolled || lightTopPages.some((p) => pathname === p || pathname.startsWith(`${p}/`));
   const light = !solid && !open;
+  const isActive = (href: string) => (href === "/" ? pathname === "/" : pathname.startsWith(href));
 
   return (
     <>
       <header
         className={`fixed inset-x-0 top-0 z-50 transition-[background-color,box-shadow,padding] duration-700 ease-[var(--ease-calm)] ${
           solid && !open
-            ? "bg-ivory/85 py-3 shadow-[0_1px_0_rgba(28,58,75,0.08)] backdrop-blur-md"
+            ? "bg-ivory/90 py-3 shadow-[0_1px_0_rgba(28,58,75,0.08)] backdrop-blur-md"
             : "bg-transparent py-5 md:py-7"
         }`}
+        onMouseLeave={() => setMenu(null)}
       >
         <div className="container-page flex items-center justify-between gap-6">
-          <Link href="/" aria-label="AYUSH & VIVUM — home" onClick={() => setOpen(false)}>
+          <Link href="/" aria-label="AYUSH & VIVUM — home">
             <Logo tone={light || open ? "light" : "dark"} />
           </Link>
 
           <nav aria-label="Main" className="hidden xl:block">
-            <ul className="flex items-center gap-8">
+            <ul className="flex items-center gap-7">
               {navItems.map((item) => (
-                <li key={item.href}>
+                <li key={item.href} className="relative" onMouseEnter={() => setMenu(item.children ? item.label : null)}>
                   <Link
                     href={item.href}
-                    className={`relative text-[0.7rem] tracking-[0.2em] uppercase transition-colors duration-500 after:absolute after:-bottom-1.5 after:left-0 after:h-px after:w-full after:origin-left after:scale-x-0 after:bg-current after:transition-transform after:duration-500 hover:after:scale-x-100 ${
-                      light ? "text-ivory/90 hover:text-ivory" : "text-adriatic/80 hover:text-adriatic"
-                    }`}
+                    onFocus={() => setMenu(item.children ? item.label : null)}
+                    aria-current={isActive(item.href) ? "page" : undefined}
+                    className={`relative py-2 text-[0.68rem] tracking-[0.2em] uppercase transition-colors duration-500 after:absolute after:bottom-0 after:left-0 after:h-px after:w-full after:origin-left after:bg-current after:transition-transform after:duration-500 hover:after:scale-x-100 ${
+                      isActive(item.href) ? "after:scale-x-100" : "after:scale-x-0"
+                    } ${light ? "text-ivory/90 hover:text-ivory" : "text-adriatic/80 hover:text-adriatic"}`}
                   >
                     {item.label}
                   </Link>
+
+                  {item.children && (
+                    <AnimatePresence>
+                      {menu === item.label && (
+                        <motion.div
+                          initial={{ opacity: 0, y: 8 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0, y: 6 }}
+                          transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+                          className="absolute top-full left-1/2 w-72 -translate-x-1/2 pt-5"
+                        >
+                          <ul className="rounded-2xl border border-stone/50 bg-ivory p-2 shadow-[0_24px_60px_-24px_rgba(16,38,52,0.35)]">
+                            {item.children.map((c) => (
+                              <li key={c.href + c.label}>
+                                <Link
+                                  href={c.href}
+                                  className="block rounded-xl px-4 py-3 transition-colors hover:bg-sand"
+                                >
+                                  <span className="block font-display text-xl text-adriatic">{c.label}</span>
+                                  {c.note && <span className="mt-0.5 block text-[0.8rem] text-muted">{c.note}</span>}
+                                </Link>
+                              </li>
+                            ))}
+                          </ul>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  )}
                 </li>
               ))}
             </ul>
@@ -52,7 +96,7 @@ export function Header() {
 
           <div className="flex items-center gap-3">
             <Link
-              href="#book"
+              href="/contact"
               className={`hidden rounded-full px-5 py-3 text-[0.68rem] tracking-[0.2em] uppercase transition-colors duration-500 sm:inline-block ${
                 light ? "bg-ivory/95 text-adriatic-deep hover:bg-ivory" : "bg-olive text-ivory hover:bg-forest"
               }`}
@@ -84,14 +128,14 @@ export function Header() {
         {open && (
           <motion.div
             id="mobile-menu"
-            className="fixed inset-0 z-40 flex flex-col justify-end bg-adriatic-deep px-6 pt-28 pb-12 text-ivory"
+            className="fixed inset-0 z-40 flex flex-col overflow-y-auto bg-adriatic-deep px-6 pt-28 pb-12 text-ivory"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <nav aria-label="Mobile">
-              <ul className="space-y-3">
+            <nav aria-label="Mobile" className="mt-auto">
+              <ul className="space-y-4">
                 {navItems.map((item, i) => (
                   <motion.li
                     key={item.href}
@@ -99,16 +143,28 @@ export function Header() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.1 + i * 0.05, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
                   >
-                    <Link href={item.href} onClick={() => setOpen(false)} className="font-display text-4xl font-light">
+                    <Link href={item.href} className="font-display text-4xl font-light">
                       {item.label}
                     </Link>
+                    {item.children && (
+                      <ul className="mt-2 flex flex-wrap gap-x-5 gap-y-1">
+                        {item.children
+                          .filter((c) => c.href !== item.href)
+                          .map((c) => (
+                            <li key={c.href}>
+                              <Link href={c.href} className="eyebrow text-[0.62rem] text-ivory/60">
+                                {c.label}
+                              </Link>
+                            </li>
+                          ))}
+                      </ul>
+                    )}
                   </motion.li>
                 ))}
               </ul>
             </nav>
             <Link
-              href="#book"
-              onClick={() => setOpen(false)}
+              href="/contact"
               className="mt-12 rounded-full bg-ivory py-4 text-center text-[0.72rem] tracking-[0.22em] text-adriatic-deep uppercase"
             >
               Book a Consultation
@@ -120,7 +176,7 @@ export function Header() {
   );
 }
 
-/** Keeps the primary CTA in reach on phones once the hero has scrolled away. */
+/** Keeps the primary CTA in reach on phones once the first screen has scrolled away. */
 export function MobileBookBar() {
   const { scrollY } = useScroll();
   const [show, setShow] = useState(false);
@@ -133,7 +189,7 @@ export function MobileBookBar() {
       }`}
     >
       <Link
-        href="#book"
+        href="/contact"
         className="block rounded-full bg-olive py-4 text-center text-[0.72rem] tracking-[0.22em] text-ivory uppercase shadow-[0_10px_30px_-10px_rgba(16,38,52,0.5)]"
       >
         Book a Consultation

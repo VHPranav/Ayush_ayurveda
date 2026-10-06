@@ -40,7 +40,7 @@ export function WhyMontenegro() {
               From the Adriatic coast to pristine mountains, rivers and healing landscapes, Montenegro offers a unique
               natural setting for restoration, balance and long-term wellbeing.
             </p>
-            <Button href="#montenegro" variant="outline-dark" className="mt-8">
+            <Button href="/montenegro" variant="outline-dark" className="mt-8">
               Discover Montenegro
             </Button>
           </Reveal>

@@ -68,10 +68,10 @@ export function Hero() {
           </p>
 
           <div className="fade-rise mt-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap" style={{ animationDelay: "1.35s" }}>
-            <Button href="#ayush" variant="solid" >
+            <Button href="/programmes" variant="solid">
               Therapeutic Programmes
             </Button>
-            <Button href="#vivum" variant="outline-light" >
+            <Button href="/vivum" variant="outline-light">
               Wellness Journeys
             </Button>
           </div>

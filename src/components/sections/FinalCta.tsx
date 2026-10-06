@@ -48,10 +48,10 @@ export function FinalCta() {
             conversation.
           </p>
           <div className="mt-10 flex flex-col gap-3 sm:flex-row">
-            <Button href="#book" variant="solid">
+            <Button href="/contact" variant="solid">
               Book a Consultation
             </Button>
-            <Button href="#contact" variant="outline-light">
+            <Button href="/contact" variant="outline-light">
               Speak With Our Team
             </Button>
           </div>

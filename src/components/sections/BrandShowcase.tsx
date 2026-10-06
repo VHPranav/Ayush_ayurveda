@@ -179,7 +179,7 @@ function BrandImage({
             Hover to discover
           </span>
         ) : null}
-        <Button href="#programmes" variant="solid" className="shrink-0">
+        <Button href={brand.id === "ayush" ? "/ayush" : "/vivum"} variant="solid" className="shrink-0">
           {brand.cta}
         </Button>
       </div>

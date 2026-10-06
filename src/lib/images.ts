@@ -99,4 +99,21 @@ export const photos = {
     src: unsplash("photo-1586806986411-94dce4e608a2"),
     alt: "A figure resting on still water at sunset",
   },
+  // Kerala (AYUSH India page)
+  keralaHouseboat: {
+    src: unsplash("photo-1602216056096-3b40cc0c9944"),
+    alt: "A traditional houseboat on the Kerala backwaters, lined with coconut palms",
+  },
+  keralaPalms: {
+    src: unsplash("photo-1679934409073-838c884261fb"),
+    alt: "Coconut palms in morning mist in Kerala",
+  },
+  keralaDawn: {
+    src: unsplash("photo-1643614331150-37823121afce"),
+    alt: "A wooden canoe on still backwater at dawn",
+  },
+  munnarHills: {
+    src: unsplash("photo-1696027356970-b1527cc0d33c"),
+    alt: "Tea plantations across the hills of Munnar, Kerala",
+  },
 } satisfies Record<string, Photo>;

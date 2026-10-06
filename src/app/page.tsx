@@ -1,5 +1,3 @@
-import { Header, MobileBookBar } from "@/components/Header";
-import { Footer } from "@/components/Footer";
 import { Hero } from "@/components/sections/Hero";
 import { Introduction } from "@/components/sections/Introduction";
 import { IntroSequence } from "@/components/sections/IntroSequence";
@@ -13,7 +11,6 @@ import { FinalCta } from "@/components/sections/FinalCta";
 export default function Home() {
   return (
     <>
-      <Header />
       <main>
         <Hero />
         <IntroSequence>
@@ -26,8 +23,6 @@ export default function Home() {
         <Location />
         <FinalCta />
       </main>
-      <Footer />
-      <MobileBookBar />
     </>
   );
 }

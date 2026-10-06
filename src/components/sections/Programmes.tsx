@@ -7,11 +7,12 @@ import { photos, type Photo } from "@/lib/images";
 import { Reveal } from "../ui/Reveal";
 import { Arrow } from "../ui/Button";
 
-type Programme = { title: string; subtitle: string; body: string; brand: "AYUSH" | "VIVUM"; photo: Photo };
+type Programme = { title: string; subtitle: string; body: string; brand: "AYUSH" | "VIVUM"; photo: Photo; href: string };
 
 const programmes: Programme[] = [
   {
     title: "Therapeutic Programmes",
+    href: "/programmes",
     subtitle: "Personalised Ayurveda & Yoga Therapy",
     body: "Professional consultation and individually prescribed treatment in calm spaces of stone, wood and natural materials.",
     brand: "AYUSH",
@@ -19,6 +20,7 @@ const programmes: Programme[] = [
   },
   {
     title: "Rejuvenation Journeys",
+    href: "/vivum",
     subtitle: "Restore · Renew · Thrive",
     body: "Yoga and meditation beside the Adriatic Sea, with daily rhythms designed around rest and renewal.",
     brand: "VIVUM",
@@ -26,6 +28,7 @@ const programmes: Programme[] = [
   },
   {
     title: "Holistic Wellness",
+    href: "/vivum",
     subtitle: "Mediterranean Nutrition & Ayurvedic Principles",
     body: "Mediterranean and functional nutrition guided by Ayurvedic principles and local, seasonal ingredients.",
     brand: "VIVUM",
@@ -33,6 +36,7 @@ const programmes: Programme[] = [
   },
   {
     title: "Wellness Retreats",
+    href: "/vivum",
     subtitle: "Exclusive Locations in Montenegro",
     body: "Immersive stays at selected premium hotels and partner locations on the coast and in the mountains.",
     brand: "VIVUM",
@@ -94,7 +98,7 @@ export function Programmes() {
               a personal consultation.
             </p>
             <Link
-              href="#programmes"
+              href="/programmes"
               className={`group mt-6 inline-flex items-center gap-3 text-[0.7rem] tracking-[0.22em] uppercase transition-colors duration-700 ${
                 engaged ? "text-ivory" : "text-adriatic"
               }`}
@@ -112,7 +116,7 @@ export function Programmes() {
             return (
               <Reveal key={p.title} delay={i * 0.12} className={place.cell}>
                 <Link
-                  href="#programmes"
+                  href={p.href}
                   onMouseEnter={() => setActive(i)}
                   onMouseLeave={() => setActive(null)}
                   onFocus={() => setActive(i)}
@@ -177,7 +181,7 @@ export function Programmes() {
         <div className="-mx-5 mt-14 flex snap-x snap-mandatory gap-5 overflow-x-auto px-5 pb-4 md:mx-0 md:mt-20 md:grid md:grid-cols-2 md:gap-8 md:overflow-visible md:px-0 lg:hidden [&::-webkit-scrollbar]:hidden">
           {programmes.map((p, i) => (
             <Reveal key={p.title} delay={i * 0.12} className="w-[80%] shrink-0 snap-start md:w-auto">
-              <Link href="#programmes" className="group block">
+              <Link href={p.href} className="group block">
                 <div className="relative aspect-[3/4] overflow-hidden rounded-sm">
                   <Image
                     src={p.photo.src}

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Logo } from "./ui/Logo";
-import { navItems } from "@/lib/nav";
+import { footerGroups } from "@/lib/nav";
 
 const socials = [
   {
@@ -13,10 +13,10 @@ const socials = [
 
 export function Footer() {
   return (
-    <footer id="contact" className="bg-adriatic-deep pt-20 pb-28 text-ivory sm:pb-10">
+    <footer className="bg-adriatic-deep pt-20 pb-28 text-ivory sm:pb-10">
       <div className="container-page">
         <div className="grid gap-12 border-b border-ivory/15 pb-14 md:grid-cols-12">
-          <div className="md:col-span-5">
+          <div className="md:col-span-4">
             <Logo animated={false} />
             <p className="mt-8 max-w-xs font-display text-2xl leading-snug text-ivory/85 italic">
               Wellness for People and the Places We Call Home.
@@ -24,17 +24,21 @@ export function Footer() {
             <span className="mt-4 block h-px w-12 bg-gold" />
           </div>
 
-          <nav aria-label="Footer" className="md:col-span-3">
-            <p className="eyebrow text-[0.6rem] text-ivory/50">Explore</p>
-            <ul className="mt-5 space-y-3">
-              {navItems.map((item) => (
-                <li key={item.href}>
-                  <Link href={item.href} className="text-ivory/80 transition-colors hover:text-ivory">
-                    {item.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+          <nav aria-label="Footer" className="grid grid-cols-2 gap-8 sm:grid-cols-3 md:col-span-4">
+            {footerGroups.map((g) => (
+              <div key={g.title}>
+                <p className="eyebrow text-[0.6rem] text-ivory/50">{g.title}</p>
+                <ul className="mt-5 space-y-3">
+                  {g.links.map((l) => (
+                    <li key={l.href + l.label}>
+                      <Link href={l.href} className="text-[0.95rem] text-ivory/80 transition-colors hover:text-ivory">
+                        {l.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
           </nav>
 
           <div className="md:col-span-4">
@@ -44,7 +48,7 @@ export function Footer() {
               guide you.
             </p>
             <Link
-              href="#book"
+              href="/contact"
               className="mt-6 inline-block rounded-full bg-ivory px-6 py-3.5 text-[0.7rem] tracking-[0.22em] text-adriatic-deep uppercase transition-colors hover:bg-sand"
             >
               Book a Consultation
@@ -68,9 +72,12 @@ export function Footer() {
         </div>
 
         <div className="flex flex-col gap-4 pt-8 text-[0.8rem] text-ivory/50 md:flex-row md:items-center md:justify-between">
-          <p>© {new Date().getFullYear()} AYUSH &amp; VIVUM · Ayurveda · Yoga · Wellness · Montenegro</p>
-          <ul className="flex gap-6">
-            {["Privacy", "Terms", "Sitemap", "Contact"].map((l) => (
+          <div className="space-y-1">
+            <p>© {new Date().getFullYear()} AYUSH — Ayurveda &amp; Yoga Therapy · UK | Montenegro | India</p>
+            <p>VIVUM — Ayurveda Wellness &amp; Yoga · Montenegro</p>
+          </div>
+          <ul className="flex flex-wrap gap-x-6 gap-y-2">
+            {["Privacy Policy", "Booking Terms", "Medical Disclaimer", "Accessibility"].map((l) => (
               <li key={l}>
                 <a href="#" className="transition-colors hover:text-ivory">
                   {l}
