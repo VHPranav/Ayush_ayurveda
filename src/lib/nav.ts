@@ -21,7 +21,15 @@ export const navItems: NavItem[] = [
     ],
   },
   { label: "Programmes", href: "/programmes" },
-  { label: "VIVUM", href: "/vivum" },
+  {
+    label: "VIVUM",
+    href: "/vivum",
+    children: [
+      { label: "VIVUM Wellness", href: "/vivum", note: "Ayurveda wellness, Yoga & retreats" },
+      { label: "Consulting & Training", href: "/vivum/consulting", note: "Strategy, processes & responsible AI" },
+      { label: "International Recruitment", href: "/vivum/recruitment", note: "Workforce from India & UAE" },
+    ],
+  },
   { label: "UK", href: "/uk" },
   { label: "India", href: "/india" },
   { label: "Contact", href: "/contact" },
@@ -47,10 +55,12 @@ export const footerGroups = [
     ],
   },
   {
-    title: "Plan",
+    title: "More",
     links: [
       { label: "Travel & FAQs", href: "/travel" },
       { label: "Book a Consultation", href: "/contact" },
+      { label: "VIVUM Consulting", href: "/vivum/consulting" },
+      { label: "International Recruitment", href: "/vivum/recruitment" },
     ],
   },
 ];
