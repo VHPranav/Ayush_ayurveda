@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { TIERS } from "@/lib/programmes";
+import {  TIERS } from "@/lib/programmes";
 import { photos } from "@/lib/images";
 import { ProgrammeExplorer } from "@/components/pages/ProgrammeExplorer";
 import { FadeIn } from "@/components/ui/FadeIn";
 import { Reveal } from "@/components/ui/Reveal";
 import { Arrow } from "@/components/ui/Button";
-import { BookingBand, Eyebrow } from "@/components/ui/Kit";
+import { BookingBand } from "@/components/ui/Kit";
 
 export const metadata: Metadata = {
   title: "Programmes",
@@ -30,8 +30,7 @@ export default function ProgrammesPage() {
       <section className="container-page pt-40 pb-20 md:pt-48">
         <div className="grid gap-10 lg:grid-cols-12">
           <FadeIn delay={0.2} className="lg:col-span-7">
-            <Eyebrow>AYUSH Montenegro · Hyatt Regency Kotor Bay</Eyebrow>
-            <h1 className="mt-6 heading-display text-adriatic">
+            <h1 className="heading-display text-adriatic">
               A progression
               <span className="block text-olive">of care</span>
             </h1>
@@ -53,8 +52,7 @@ export default function ProgrammesPage() {
       <section className="bg-adriatic-deep py-24 text-ivory md:py-32">
         <div className="container-page grid gap-16 lg:grid-cols-12">
           <Reveal className="lg:col-span-5">
-            <Eyebrow tone="light">Prescribed allowances</Eyebrow>
-            <h2 className="mt-6 heading-display">Medicines that travel home with you</h2>
+            <h2 className="heading-display">Medicines that travel home with you</h2>
             <p className="mt-6 leading-relaxed text-ivory/75">
               Every programme includes an allowance for traditional preparations — Kashayam, Thailas, Arishta — prescribed
               by your Vaidya. They are not retail extras: they bridge the therapy you receive here with your continuity at
@@ -89,7 +87,7 @@ export default function ProgrammesPage() {
         {[
           { href: "/treatments", title: "Individual treatments", body: "The stand-alone Ayurvedic menu — consultation-led entry points and add-ons." },
           { href: "/conditions", title: "Condition-focused programmes", body: "Dedicated pathways explaining who each programme is for and what it includes." },
-          { href: "/vivum", title: "Wellness retreats", body: "Prefer relaxation over therapy? VIVUM offers seasonal wellness and Yoga retreats." },
+          { href: "/contact", title: "Book a consultation", body: "Not sure which programme fits? Every journey begins with a practitioner consultation." },
         ].map((c, i) => (
           <Reveal key={c.href} delay={0.08 * i}>
             <Link href={c.href} className="group flex h-full flex-col justify-between rounded-3xl border border-stone/60 p-8 transition-colors duration-500 hover:bg-sand">

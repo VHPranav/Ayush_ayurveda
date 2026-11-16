@@ -1,4 +1,4 @@
-import { photos } from "@/lib/images";
+import { coverSizes, photos } from "@/lib/images";
 import { ParallaxImage } from "../ui/ParallaxImage";
 import { Reveal } from "../ui/Reveal";
 import { Button } from "../ui/Button";
@@ -27,11 +27,7 @@ export function WhyMontenegro() {
       <div className="container-page">
         <div className="grid gap-8 md:grid-cols-12">
           <Reveal className="md:col-span-5">
-            <p className="eyebrow flex items-center gap-4 text-stone-deep">
-              <span className="h-px w-10 bg-gold" />
-              The Setting
-            </p>
-            <h2 className="mt-6 heading-display text-adriatic">
+            <h2 className="heading-display text-adriatic">
               Why Montenegro?
             </h2>
           </Reveal>
@@ -40,8 +36,8 @@ export function WhyMontenegro() {
               From the Adriatic coast to pristine mountains, rivers and healing landscapes, Montenegro offers a unique
               natural setting for restoration, balance and long-term wellbeing.
             </p>
-            <Button href="/montenegro" variant="outline-dark" className="mt-8">
-              Discover Montenegro
+            <Button href="/programmes" variant="outline-dark" className="mt-8">
+              Explore Programmes
             </Button>
           </Reveal>
         </div>
@@ -51,7 +47,8 @@ export function WhyMontenegro() {
             <Reveal key={theme.title} delay={i * 0.15} className={i === 1 ? "md:mt-20" : ""}>
               <ParallaxImage
                 photo={theme.photo}
-                sizes="(min-width: 768px) 30vw, 100vw"
+                sizes={coverSizes(theme.photo, 3 / 4, [["(min-width: 768px)", 30], [null, 100]], 1.24)}
+                quality={80}
                 className="aspect-[3/4] rounded-sm"
               />
               <div className="mt-7 flex gap-5">

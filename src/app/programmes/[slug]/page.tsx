@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { ParallaxFill } from "@/components/ui/ParallaxFill";
+import {  ParallaxFill } from "@/components/ui/ParallaxFill";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { euro, getProgramme, programmes } from "@/lib/programmes";
@@ -7,7 +7,7 @@ import { photos } from "@/lib/images";
 import { FadeIn } from "@/components/ui/FadeIn";
 import { Reveal } from "@/components/ui/Reveal";
 import { Arrow, Button } from "@/components/ui/Button";
-import { BookingBand, Eyebrow, Icon } from "@/components/ui/Kit";
+import { BookingBand, Icon } from "@/components/ui/Kit";
 
 export function generateStaticParams() {
   return programmes.map((p) => ({ slug: p.slug }));
@@ -63,7 +63,7 @@ export default async function ProgrammePage(props: PageProps<"/programmes/[slug]
       <section className="bg-ivory pb-28">
         <div className="container-page grid gap-16 border-t border-stone/50 pt-20 lg:grid-cols-12 lg:gap-12">
           <div className="lg:col-span-7">
-            <Eyebrow>The journey</Eyebrow>
+            <h2 className="font-display text-3xl font-light text-adriatic md:text-4xl">The journey</h2>
             <ol className="mt-10 space-y-0">
               {p.phases.map((ph, i) => (
                 <Reveal key={ph.title} delay={0.05 * i}>
@@ -86,7 +86,7 @@ export default async function ProgrammePage(props: PageProps<"/programmes/[slug]
             </ol>
 
             <div className="mt-20">
-              <Eyebrow>What’s included</Eyebrow>
+              <h2 className="font-display text-3xl font-light text-adriatic md:text-4xl">What’s included</h2>
               <div className="mt-10 grid gap-px overflow-hidden rounded-2xl border border-stone/60 bg-stone/60 sm:grid-cols-2">
                 {p.inclusions.map((inc, i) => (
                   <Reveal key={inc.title} delay={0.06 * i} className="bg-ivory p-7">
@@ -100,7 +100,7 @@ export default async function ProgrammePage(props: PageProps<"/programmes/[slug]
 
             {p.extra && (
               <div className="mt-20">
-                <Eyebrow>{p.extra.title}</Eyebrow>
+                <h2 className="font-display text-3xl font-light text-adriatic md:text-4xl">{p.extra.title}</h2>
                 <ul className="mt-8 flex flex-wrap gap-2.5">
                   {p.extra.items.map((it) => (
                     <li key={it} className="rounded-full bg-sand px-4 py-2 text-[0.92rem] text-ink/85">
@@ -168,7 +168,7 @@ export default async function ProgrammePage(props: PageProps<"/programmes/[slug]
       <section className="bg-sand/60 py-24">
         <div className="container-page">
           <div className="flex items-end justify-between gap-6">
-            <Eyebrow>Other programmes</Eyebrow>
+            <h2 className="font-display text-3xl font-light text-adriatic md:text-4xl">Other programmes</h2>
             <Link href="/programmes" className="group eyebrow inline-flex items-center gap-3 text-[0.62rem] text-adriatic">
               View all <Arrow />
             </Link>
@@ -190,7 +190,7 @@ export default async function ProgrammePage(props: PageProps<"/programmes/[slug]
         </div>
       </section>
 
-      <BookingBand photo={photos.heroBay} secondary={{ label: "Plan your travel", href: "/travel" }} />
+      <BookingBand photo={photos.heroBay} secondary={{ label: "All programmes", href: "/programmes" }} />
     </main>
   );
 }

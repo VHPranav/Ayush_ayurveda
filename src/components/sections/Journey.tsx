@@ -1,8 +1,8 @@
 "use client";
 
-import { ParallaxFill } from "@/components/ui/ParallaxFill";
-import { useLayoutEffect, useRef, useState } from "react";
-import { motion, useReducedMotion, useScroll, useTransform, type MotionValue } from "motion/react";
+import Image from "next/image";
+import { useRef, useState } from "react";
+import { useMotionValueEvent, useScroll } from "motion/react";
 import { photos, type Photo } from "@/lib/images";
 import { Reveal } from "../ui/Reveal";
 
@@ -11,168 +11,124 @@ const steps: { phase: string; title: string; body: string; photo: Photo }[] = [
     phase: "Consultation",
     title: "A conversation first",
     body: "An unhurried first meeting with an experienced practitioner about your health, history, lifestyle and goals.",
-    photo: photos.herbalTea,
+    photo: photos.nadiPariksha,
   },
   {
     phase: "Assessment",
     title: "Understanding your balance",
     body: "An Ayurvedic assessment of your constitution and current state, considered alongside your medical history.",
-    photo: photos.oliveBranch,
+    photo: photos.herbalOil,
   },
   {
     phase: "Programme",
     title: "Designed around you",
     body: "A personalised programme combining therapy, yoga, nutrition and time in Montenegro’s nature.",
-    photo: photos.ancientOlive,
+    photo: photos.yogaTherapy,
   },
   {
     phase: "Treatment",
     title: "Care in calm surroundings",
     body: "Treatments delivered by qualified therapists in natural, restful spaces — at our centre or partner locations.",
-    photo: photos.treatmentDetail,
+    photo: photos.pindaSweda,
   },
   {
     phase: "Follow-up",
     title: "Wellbeing that lasts",
     body: "Ongoing guidance and reviews to help you carry the benefits home and sustain them over time.",
-    photo: photos.quietShore,
+    photo: photos.ayurvedicLunch,
   },
 ];
 
-function Intro({ className = "" }: { className?: string }) {
+const pad = (n: number) => String(n).padStart(2, "0");
+
+function Heading() {
   return (
-    <div className={className}>
-      <p className="eyebrow flex items-center gap-4 text-ivory/70">
-        <span className="h-px w-10 bg-gold" />
-        Step by Step
-      </p>
-      <h2 className="mt-6 heading-display">
-        Your Personalised
-        <span className="block text-sage">Journey</span>
+    <>
+      <h2 className="font-hero text-[2.6rem] leading-[1.04] text-ivory sm:text-6xl lg:text-[4.25rem] xl:text-[4.75rem]">
+        Your personalised
+        <span className="block font-display font-light text-sage italic">journey</span>
       </h2>
       <p className="mt-6 max-w-sm leading-relaxed text-ivory/70">
         From the first consultation to lasting wellbeing — a clear, professionally supervised path, shaped around you.
       </p>
-    </div>
+    </>
   );
 }
 
-function StepCard({ step, index }: { step: (typeof steps)[number]; index: number }) {
+function Step({ index, active }: { index: number; active: boolean }) {
+  const step = steps[index];
   return (
-    <article className="group relative w-full shrink-0 overflow-hidden rounded-sm bg-forest-deep md:w-[26rem]">
-      <div className="relative aspect-[4/3] overflow-hidden md:aspect-[4/5]">
-        <ParallaxFill
-          src={step.photo.src}
-          alt={step.photo.alt}
-          quality={70}
-          sizes="(min-width: 768px) 26rem, 100vw"
-          className="object-cover opacity-85 transition-transform duration-[1600ms] ease-[var(--ease-calm)] group-hover:scale-[1.04]"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-forest-deep via-forest-deep/30 to-transparent" />
+    <li
+      className={`border-t border-ivory/15 py-12 transition-opacity duration-700 ease-[var(--ease-calm)] lg:flex lg:min-h-[62vh] lg:flex-col lg:justify-center lg:py-16 ${
+        active ? "lg:opacity-100" : "lg:opacity-35"
+      }`}
+    >
+      {/* Phones: each step carries its own photograph */}
+      <div className="relative mb-8 aspect-[4/3] overflow-hidden rounded-sm lg:hidden">
+        <Image src={step.photo.src} alt={step.photo.alt} fill quality={75} sizes="100vw" className="object-cover" />
       </div>
-      <div className="absolute inset-x-0 bottom-0 p-7">
-        <p className="eyebrow text-[0.6rem] text-gold">Phase 0{index + 1}</p>
-        <h3 className="mt-3 font-display text-4xl font-light">{step.phase}</h3>
-        <p className="mt-1 font-display text-lg text-ivory/75 italic">{step.title}</p>
-        <p className="mt-4 text-[0.95rem] leading-relaxed text-ivory/75">{step.body}</p>
-      </div>
-    </article>
-  );
-}
 
-function PhaseTick({ i, progress }: { i: number; progress: MotionValue<number> }) {
-  const start = i / steps.length;
-  const opacity = useTransform(progress, [Math.max(0, start - 0.05), start + 0.05], [0.35, 1]);
-  return (
-    <motion.span style={{ opacity }} className="eyebrow text-[0.6rem]">
-      0{i + 1} {steps[i].phase}
-    </motion.span>
-  );
-}
-
-/** Desktop: the section pins while the steps travel horizontally, like turning pages. */
-function PinnedJourney() {
-  const section = useRef<HTMLElement>(null);
-  const track = useRef<HTMLDivElement>(null);
-  const [distance, setDistance] = useState(0);
-
-  useLayoutEffect(() => {
-    const measure = () => {
-      if (track.current) setDistance(Math.max(0, track.current.scrollWidth - window.innerWidth));
-    };
-    measure();
-    const ro = new ResizeObserver(measure);
-    if (track.current) ro.observe(track.current);
-    window.addEventListener("resize", measure);
-    return () => {
-      ro.disconnect();
-      window.removeEventListener("resize", measure);
-    };
-  }, []);
-
-  const { scrollYProgress } = useScroll({ target: section, offset: ["start start", "end end"] });
-  const x = useTransform(scrollYProgress, (v) => -v * distance);
-  const fill = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
-
-  return (
-    <section ref={section} className="relative h-[420vh] bg-forest text-ivory">
-      <div className="sticky top-0 flex h-screen flex-col justify-center overflow-hidden">
-        <motion.div ref={track} style={{ x }} className="flex items-center gap-8 pr-[8vw] pl-[max(4rem,calc((100vw-88rem)/2+4rem))] will-change-transform">
-          <Intro className="w-[34rem] shrink-0 pr-8" />
-          {steps.map((step, i) => (
-            <StepCard key={step.phase} step={step} index={i} />
-          ))}
-        </motion.div>
-
-        <div className="container-page mt-10">
-          <div className="relative h-px bg-ivory/15">
-            <motion.div style={{ width: fill }} className="absolute inset-y-0 left-0 bg-gold" />
-          </div>
-          <div className="mt-4 flex justify-between text-ivory/80">
-            {steps.map((_, i) => (
-              <PhaseTick key={i} i={i} progress={scrollYProgress} />
-            ))}
-          </div>
+      <div className="flex items-baseline gap-6 md:gap-10">
+        <span className="font-hero text-5xl leading-none text-gold md:text-7xl">{pad(index + 1)}</span>
+        <div>
+          <h3 className="font-hero text-4xl leading-tight text-ivory md:text-5xl">{step.phase}</h3>
+          <p className="mt-2 font-display text-xl text-sage italic md:text-2xl">{step.title}</p>
+          <p className="mt-5 max-w-md leading-relaxed text-ivory/70">{step.body}</p>
         </div>
       </div>
-    </section>
-  );
-}
-
-/** Mobile and reduced motion: a simple vertical sequence. */
-function StackedJourney({ className = "" }: { className?: string }) {
-  return (
-    <section className={`bg-forest py-24 text-ivory ${className}`}>
-      <div className="container-page">
-        <Reveal>
-          <Intro />
-        </Reveal>
-        <div className="mt-14 space-y-6">
-          {steps.map((step, i) => (
-            <Reveal key={step.phase} delay={0.05}>
-              <StepCard step={step} index={i} />
-            </Reveal>
-          ))}
-        </div>
-      </div>
-    </section>
+    </li>
   );
 }
 
 export function Journey() {
-  const reduced = useReducedMotion();
+  const [active, setActive] = useState(0);
+  // The step crossing the middle of the screen is the active one — derived from scroll
+  // position so a fast scroll can never skip a step.
+  const list = useRef<HTMLOListElement>(null);
+  const { scrollYProgress } = useScroll({ target: list, offset: ["start center", "end center"] });
+  useMotionValueEvent(scrollYProgress, "change", (v) => {
+    setActive(Math.min(steps.length - 1, Math.max(0, Math.floor(v * steps.length))));
+  });
+
   return (
-    <div id="journey">
-      {reduced ? (
-        <StackedJourney />
-      ) : (
-        <>
-          <div className="hidden md:block">
-            <PinnedJourney />
+    <section id="journey" className="relative bg-forest-deep text-ivory">
+      <div className="container-page grid gap-12 py-24 md:py-32 lg:grid-cols-12 lg:gap-10 lg:py-0">
+        {/* Left — stays in view while the steps scroll past (desktop) */}
+        <div className="lg:col-span-5">
+          <div className="lg:sticky lg:top-0 lg:flex lg:h-screen lg:flex-col lg:justify-center lg:py-24">
+            <Reveal>
+              <Heading />
+            </Reveal>
+
+            <div className="relative mt-12 hidden aspect-[4/5] max-h-[46vh] overflow-hidden rounded-t-full lg:block">
+              {steps.map((s, i) => (
+                <Image
+                  key={s.phase}
+                  src={s.photo.src}
+                  alt={i === active ? s.photo.alt : ""}
+                  fill
+                  quality={75}
+                  sizes="35vw"
+                  className={`object-cover transition-[opacity,transform] duration-[1200ms] ease-[var(--ease-calm)] ${
+                    i === active ? "scale-100 opacity-100" : "scale-[1.06] opacity-0"
+                  }`}
+                />
+              ))}
+              <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-forest-deep/70 to-transparent" />
+              <p className="absolute bottom-5 left-1/2 -translate-x-1/2 font-label text-[0.68rem] font-medium tracking-[0.3em] text-ivory/90">
+                {pad(active + 1)} / {pad(steps.length)}
+              </p>
+            </div>
           </div>
-          <StackedJourney className="md:hidden" />
-        </>
-      )}
-    </div>
+        </div>
+
+        {/* Right — the five steps */}
+        <ol ref={list} className="lg:col-span-6 lg:col-start-7 lg:my-[19vh]">
+          {steps.map((s, i) => (
+            <Step key={s.phase} index={i} active={i === active} />
+          ))}
+        </ol>
+      </div>
+    </section>
   );
 }

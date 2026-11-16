@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { photos } from "@/lib/images";
+import {  photos } from "@/lib/images";
 import { ConditionList } from "@/components/pages/ConditionList";
 import { FadeIn } from "@/components/ui/FadeIn";
 import { Reveal } from "@/components/ui/Reveal";
 import { Arrow } from "@/components/ui/Button";
-import { BookingBand, Eyebrow, Icon } from "@/components/ui/Kit";
+import { BookingBand, Icon } from "@/components/ui/Kit";
 
 export const metadata: Metadata = {
   title: "Condition-focused programmes",
@@ -18,8 +18,7 @@ export default function ConditionsPage() {
       <section className="container-page pt-40 pb-16 md:pt-48">
         <div className="grid gap-12 lg:grid-cols-12">
           <FadeIn delay={0.2} className="lg:col-span-7">
-            <Eyebrow>AYUSH Montenegro</Eyebrow>
-            <h1 className="mt-6 heading-display text-adriatic">
+            <h1 className="heading-display text-adriatic">
               Condition-focused
               <span className="block text-olive">programmes</span>
             </h1>
@@ -47,8 +46,7 @@ export default function ConditionsPage() {
             className="group grid gap-6 rounded-[2rem] bg-adriatic-deep p-10 text-ivory transition-colors duration-500 hover:bg-adriatic md:grid-cols-[1fr_auto] md:items-center md:p-14"
           >
             <div>
-              <p className="eyebrow text-[0.6rem] text-gold">Not sure which programme fits?</p>
-              <p className="mt-3 font-display text-3xl font-light md:text-4xl">The Specific Ailments &amp; Conditions pathway</p>
+              <p className="font-display text-3xl font-light md:text-4xl">The Specific Ailments &amp; Conditions pathway</p>
               <p className="mt-3 max-w-2xl leading-relaxed text-ivory/75">
                 A Vaidya-led pathway structured in 7, 14 or 21-day blocks, designed entirely after your initial
                 assessment.
@@ -61,7 +59,7 @@ export default function ConditionsPage() {
         </Reveal>
       </section>
 
-      <BookingBand photo={photos.mountainLake} title="Talk to a practitioner first." body="A consultation — in London, online or in Montenegro — is the first step to finding the right programme." />
+      <BookingBand photo={photos.mountainLake} title="Talk to a practitioner first." body="A consultation — online or in Montenegro — is the first step to finding the right programme." />
     </main>
   );
 }

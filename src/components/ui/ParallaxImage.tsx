@@ -12,12 +12,14 @@ export function ParallaxImage({
   className = "",
   imageClassName = "",
   strength = 8,
+  quality = 75,
 }: {
   photo: Photo;
   sizes: string;
   className?: string;
   imageClassName?: string;
   strength?: number;
+  quality?: number;
 }) {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
@@ -26,7 +28,7 @@ export function ParallaxImage({
   return (
     <div ref={ref} className={`relative overflow-hidden ${className}`}>
       <motion.div style={{ y }} className="absolute -inset-y-[12%] inset-x-0">
-        <Image src={photo.src} alt={photo.alt} fill quality={70} sizes={sizes} className={`object-cover ${imageClassName}`} />
+        <Image src={photo.src} alt={photo.alt} fill quality={quality} sizes={sizes} className={`object-cover ${imageClassName}`} />
       </motion.div>
     </div>
   );

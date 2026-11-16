@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Cormorant_Garamond, Jost } from "next/font/google";
+import { Cormorant_Garamond, Gilda_Display, Jost, Space_Grotesk } from "next/font/google";
 import { SmoothScroll } from "@/components/SmoothScroll";
 import { Header, MobileBookBar } from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -13,6 +13,23 @@ const cormorant = Cormorant_Garamond({
   display: "swap",
 });
 
+// Hero display face. Stand-in for Gallient (commercial): once its licence is bought,
+// swap this for next/font/local pointing at the Gallient file and keep `--font-hero-face`.
+const heroFace = Gilda_Display({
+  subsets: ["latin"],
+  weight: ["400"],
+  variable: "--font-hero-face",
+  display: "swap",
+});
+
+// Labels, nav and buttons — same pairing as the reference site.
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin", "latin-ext"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-space-grotesk",
+  display: "swap",
+});
+
 const jost = Jost({
   subsets: ["latin", "latin-ext"],
   weight: ["300", "400", "500"],
@@ -22,8 +39,8 @@ const jost = Jost({
 
 export const metadata: Metadata = {
   title: {
-    default: "AYUSH & VIVUM — Ayurveda, Yoga & Integrative Wellness in Montenegro",
-    template: "%s — AYUSH & VIVUM",
+    default: "AYUSH — Ayurveda, Yoga & Integrative Wellness in Montenegro",
+    template: "%s — AYUSH",
   },
   description:
     "Where Eastern wisdom meets Montenegro’s healing nature. Personalised Ayurveda, yoga and integrative wellness shaped by the Adriatic Sea, the mountains and the Mediterranean way of life.",
@@ -35,7 +52,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en-GB" className={`${cormorant.variable} ${jost.variable}`}>
+    <html lang="en-GB" className={`${cormorant.variable} ${jost.variable} ${heroFace.variable} ${spaceGrotesk.variable}`}>
       <body>
         <SmoothScroll>
           <Header />

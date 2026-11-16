@@ -17,7 +17,7 @@ export function Footer() {
       <div className="container-page">
         <div className="grid gap-12 border-b border-ivory/15 pb-14 md:grid-cols-12">
           <div className="md:col-span-4">
-            <Logo animated={false} />
+            <Logo tone="light" animated={false} className="h-24 md:h-28" />
             <p className="mt-8 max-w-xs font-display text-2xl leading-snug text-ivory/85 italic">
               Wellness for People and the Places We Call Home.
             </p>
@@ -73,8 +73,7 @@ export function Footer() {
 
         <div className="flex flex-col gap-4 pt-8 text-[0.8rem] text-ivory/50 md:flex-row md:items-center md:justify-between">
           <div className="space-y-1">
-            <p>© {new Date().getFullYear()} AYUSH — Ayurveda &amp; Yoga Therapy · UK | Montenegro | India</p>
-            <p>VIVUM — Ayurveda Wellness &amp; Yoga · Montenegro</p>
+            <p>© {new Date().getFullYear()} AYUSH — Ayurveda &amp; Yoga Therapy · Montenegro</p>
           </div>
           <ul className="flex flex-wrap gap-x-6 gap-y-2">
             {["Privacy Policy", "Booking Terms", "Medical Disclaimer", "Accessibility"].map((l) => (

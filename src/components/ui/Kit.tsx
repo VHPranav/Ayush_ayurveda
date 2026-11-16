@@ -3,26 +3,14 @@ import type { Photo } from "@/lib/images";
 import { Reveal } from "./Reveal";
 import { Button } from "./Button";
 
-/** Small tracked-caps label with a gold rule. */
-export function Eyebrow({ children, tone = "dark", className = "" }: { children: React.ReactNode; tone?: "dark" | "light"; className?: string }) {
-  return (
-    <p className={`eyebrow flex items-center gap-4 ${tone === "light" ? "text-ivory/75" : "text-stone-deep"} ${className}`}>
-      <span className="h-px w-10 bg-gold" />
-      {children}
-    </p>
-  );
-}
-
-/** Eyebrow + display heading + optional lede. */
+/** Display heading + optional lede. */
 export function SectionHead({
-  eyebrow,
   title,
   lede,
   tone = "dark",
   align = "left",
   className = "",
 }: {
-  eyebrow: string;
   title: React.ReactNode;
   lede?: React.ReactNode;
   tone?: "dark" | "light";
@@ -32,10 +20,7 @@ export function SectionHead({
   const center = align === "center";
   return (
     <Reveal className={`${center ? "mx-auto text-center" : ""} ${className}`}>
-      <Eyebrow tone={tone} className={center ? "justify-center" : ""}>
-        {eyebrow}
-      </Eyebrow>
-      <h2 className={`mt-6 heading-display ${tone === "light" ? "text-ivory" : "text-adriatic"}`}>{title}</h2>
+      <h2 className={`heading-display ${tone === "light" ? "text-ivory" : "text-adriatic"}`}>{title}</h2>
       {lede && (
         <p
           className={`mt-6 max-w-2xl text-base leading-relaxed md:text-lg ${center ? "mx-auto" : ""} ${
@@ -63,12 +48,11 @@ export function BookingBand({
 }) {
   return (
     <section className="relative overflow-hidden bg-adriatic-deep py-28 text-ivory md:py-40">
-      <ParallaxFill src={photo.src} alt="" quality={70} sizes="100vw" className="object-cover opacity-45" />
+      <ParallaxFill src={photo.src} alt="" quality={75} sizes="100vw" className="object-cover opacity-45" />
       <div className="absolute inset-0 bg-gradient-to-r from-adriatic-deep/90 via-adriatic-deep/60 to-adriatic-deep/20" />
       <div className="container-page relative">
         <Reveal className="max-w-2xl">
-          <Eyebrow tone="light">Book a Consultation</Eyebrow>
-          <h2 className="mt-6 heading-display">{title}</h2>
+          <h2 className="heading-display">{title}</h2>
           <p className="mt-6 max-w-lg text-base leading-relaxed text-ivory/80 md:text-lg">{body}</p>
           <div className="mt-10 flex flex-col gap-3 sm:flex-row">
             <Button href="/contact" variant="solid">

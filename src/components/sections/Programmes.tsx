@@ -4,11 +4,11 @@ import Image from "next/image";
 import { ParallaxFill } from "@/components/ui/ParallaxFill";
 import Link from "next/link";
 import { useState } from "react";
-import { photos, type Photo } from "@/lib/images";
+import { coverSizes, photos, type Photo } from "@/lib/images";
 import { Reveal } from "../ui/Reveal";
 import { Arrow } from "../ui/Button";
 
-type Programme = { title: string; subtitle: string; body: string; brand: "AYUSH" | "VIVUM"; photo: Photo; href: string };
+type Programme = { title: string; subtitle: string; body: string; tag: string; photo: Photo; href: string };
 
 const programmes: Programme[] = [
   {
@@ -16,44 +16,42 @@ const programmes: Programme[] = [
     href: "/programmes",
     subtitle: "Personalised Ayurveda & Yoga Therapy",
     body: "Professional consultation and individually prescribed treatment in calm spaces of stone, wood and natural materials.",
-    brand: "AYUSH",
-    photo: photos.stoneBath,
+    tag: "Programmes",
+    photo: photos.panchakarmaRoom,
   },
   {
-    title: "Rejuvenation Journeys",
-    href: "/vivum",
-    subtitle: "Restore · Renew · Thrive",
-    body: "Yoga and meditation beside the Adriatic Sea, with daily rhythms designed around rest and renewal.",
-    brand: "VIVUM",
+    title: "Yoga Therapy",
+    href: "/ayush",
+    subtitle: "Therapeutic Hatha · Pranayama · Meditation",
+    body: "Yoga as therapy, not exercise — adapted to your physical ability and integrated with your treatment plan.",
+    tag: "Yoga Therapy",
     photo: photos.yogaByTheSea,
   },
   {
-    title: "Holistic Wellness",
-    href: "/vivum",
-    subtitle: "Mediterranean Nutrition & Ayurvedic Principles",
-    body: "Mediterranean and functional nutrition guided by Ayurvedic principles and local, seasonal ingredients.",
-    brand: "VIVUM",
-    photo: photos.nourishingBowl,
+    title: "Individual Treatments",
+    href: "/treatments",
+    subtitle: "The Ayurvedic Treatment Menu",
+    body: "Classical Ayurvedic therapies, from Abhyanga to Shirodhara, selected for your constitution after consultation.",
+    tag: "Treatments",
+    photo: photos.stoneBath,
   },
   {
-    title: "Wellness Retreats",
-    href: "/vivum",
-    subtitle: "Exclusive Locations in Montenegro",
-    body: "Immersive stays at selected premium hotels and partner locations on the coast and in the mountains.",
-    brand: "VIVUM",
-    photo: photos.budvaHotel,
+    title: "Condition Programmes",
+    href: "/conditions",
+    subtitle: "Focused Therapeutic Pathways",
+    body: "Dedicated programmes explaining who each is for, what it includes and how long it takes.",
+    tag: "Conditions",
+    photo: photos.herbsFlatlay,
   },
 ];
 
-const brandBg = (b: Programme["brand"]) => (b === "AYUSH" ? "bg-olive" : "bg-sea");
-const brandText = (b: Programme["brand"]) => (b === "AYUSH" ? "text-olive" : "text-sea");
 
 // Desktop "scattered" placement: different sizes and heights across a 12-column grid.
 const placements = [
-  { cell: "col-span-5 col-start-1", aspect: "aspect-[4/5]", showBody: true },
-  { cell: "col-span-3 col-start-7 mt-40", aspect: "aspect-square", showBody: false },
-  { cell: "col-span-3 col-start-10 mt-10", aspect: "aspect-[3/4]", showBody: false },
-  { cell: "col-span-5 col-start-6 -mt-10", aspect: "aspect-[4/3]", showBody: true },
+  { cell: "col-span-5 col-start-1", aspect: "aspect-[4/5]", ratio: 4 / 5, vw: 40, showBody: true },
+  { cell: "col-span-3 col-start-7 mt-40", aspect: "aspect-square", ratio: 1, vw: 24, showBody: false },
+  { cell: "col-span-3 col-start-10 mt-10", aspect: "aspect-[3/4]", ratio: 3 / 4, vw: 24, showBody: false },
+  { cell: "col-span-5 col-start-6 -mt-10", aspect: "aspect-[4/3]", ratio: 4 / 3, vw: 40, showBody: true },
 ];
 
 export function Programmes() {
@@ -71,7 +69,7 @@ export function Programmes() {
               active === i ? "scale-100 opacity-100" : "scale-105 opacity-0"
             }`}
           >
-            <Image src={p.photo.src} alt="" fill quality={70} sizes="100vw" className="object-cover" />
+            <Image src={p.photo.src} alt="" fill quality={75} sizes="100vw" className="object-cover" />
           </div>
         ))}
         <div
@@ -82,21 +80,15 @@ export function Programmes() {
       <div className="container-page relative">
         <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
           <Reveal>
-            <p
-              className={`eyebrow flex items-center gap-4 transition-colors duration-700 ${engaged ? "text-ivory/70" : "text-stone-deep"}`}
-            >
-              <span className="h-px w-10 bg-gold" />
-              Explore
-            </p>
-            <h2 className={`mt-6 heading-display transition-colors duration-700 ${engaged ? "text-ivory" : "text-adriatic"}`}>
+            <h2 className={`heading-display transition-colors duration-700 ${engaged ? "text-ivory" : "text-adriatic"}`}>
               Featured
               <span className="block">Programmes</span>
             </h2>
           </Reveal>
           <Reveal delay={0.15} className="max-w-sm">
             <p className={`leading-relaxed transition-colors duration-700 ${engaged ? "text-ivory/75" : "text-muted"}`}>
-              Therapeutic care through AYUSH and wellness journeys through VIVUM — each tailored to the individual after
-              a personal consultation.
+              Therapeutic programmes, Yoga Therapy and individual treatments — each tailored to the individual after a
+              personal consultation.
             </p>
             <Link
               href="/programmes"
@@ -133,16 +125,14 @@ export function Programmes() {
                     <ParallaxFill
                       src={p.photo.src}
                       alt={p.photo.alt}
-                      quality={70}
-                      sizes="(min-width: 1024px) 40vw, 100vw"
+                      quality={75}
+                      sizes={coverSizes(p.photo, place.ratio, [["(min-width: 1024px)", place.vw], [null, 100]])}
                       className={`object-cover transition-opacity duration-700 ${engaged ? "opacity-0" : "opacity-100"}`}
                     />
                     <span
-                      className={`eyebrow absolute top-4 left-4 rounded-full px-3 py-1.5 text-[0.58rem] text-ivory transition-opacity duration-500 ${brandBg(
-                        p.brand,
-                      )} ${engaged ? "opacity-0" : "opacity-100"}`}
+                      className={`eyebrow absolute top-4 left-4 rounded-full px-3 py-1.5 text-[0.58rem] text-ivory transition-opacity duration-500 bg-olive ${engaged ? "opacity-0" : "opacity-100"}`}
                     >
-                      {p.brand}
+                      {p.tag}
                     </span>
 
                     {/* Details panel for the hovered programme */}
@@ -151,7 +141,7 @@ export function Programmes() {
                         isActive ? "scale-100 opacity-100" : "pointer-events-none scale-[0.97] opacity-0"
                       }`}
                     >
-                      <p className={`eyebrow text-[0.6rem] ${brandText(p.brand)}`}>{p.brand}</p>
+                      <p className={`eyebrow text-[0.6rem] text-olive`}>{p.tag}</p>
                       <h3 className="mt-3 font-display text-3xl leading-tight font-light text-adriatic xl:text-4xl">
                         {p.title}
                       </h3>
@@ -186,14 +176,14 @@ export function Programmes() {
                   <ParallaxFill
                     src={p.photo.src}
                     alt={p.photo.alt}
-                    quality={70}
-                    sizes="(min-width: 768px) 45vw, 80vw"
+                    quality={75}
+                    sizes={coverSizes(p.photo, 3 / 4, [["(min-width: 768px)", 45], [null, 80]])}
                     className="object-cover"
                   />
                   <span
-                    className={`eyebrow absolute top-4 left-4 rounded-full px-3 py-1.5 text-[0.58rem] text-ivory ${brandBg(p.brand)}`}
+                    className={`eyebrow absolute top-4 left-4 rounded-full px-3 py-1.5 text-[0.58rem] text-ivory bg-olive`}
                   >
-                    {p.brand}
+                    {p.tag}
                   </span>
                 </div>
                 <div className="mt-6 flex items-start justify-between gap-4">

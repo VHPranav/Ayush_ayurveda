@@ -71,8 +71,7 @@ export function Benefits() {
           viewport={{ once: true }}
           transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
         >
-          <p className="eyebrow text-stone-deep">Why AYUSH &amp; VIVUM</p>
-          <h2 className="mx-auto mt-6 max-w-4xl heading-display text-adriatic">
+          <h2 className="mx-auto max-w-4xl heading-display text-adriatic">
             Care that is personal, <span className="text-olive">grounded in nature.</span>
           </h2>
         </motion.div>

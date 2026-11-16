@@ -2,10 +2,19 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   images: {
-    // Placeholder photography is served from Unsplash until the client's
-    // own Montenegro shoot is delivered.
-    remotePatterns: [{ protocol: "https", hostname: "images.unsplash.com", pathname: "/**" }],
-    qualities: [70, 80],
+    // All photography is self-hosted in /public/images/flow.
+    qualities: [70, 75, 80],
+  },
+  // VIVUM moved to its own website; UK, India, Montenegro and Travel pages were removed — send old links home.
+  // Temporary (307) so they can point at the new VIVUM domain once it is live.
+  async redirects() {
+    return [
+      { source: "/vivum/:path*", destination: "/", permanent: false },
+      { source: "/uk", destination: "/", permanent: false },
+      { source: "/india", destination: "/", permanent: false },
+      { source: "/montenegro", destination: "/", permanent: false },
+      { source: "/travel", destination: "/", permanent: false },
+    ];
   },
 };
 

@@ -1,10 +1,25 @@
-// Placeholder photography (Unsplash licence). Replace each `src` with the
-// client's own Montenegro photography once available — keys stay the same.
-// Cap the source at 2400px: the raw originals are 5–12 MB, which made the Next image
-// optimiser time out. 2400px is still larger than any size the page displays.
-const unsplash = (id: string) => `https://images.unsplash.com/${id}?auto=format&fit=crop&w=2400&q=80`;
+// Site photography — generated with Google Flow (Nano Banana 2.1) in one shared grade:
+// ivory/sand neutrals, olive and sage greens, forest shadows, muted grey-teal water.
+// Files live in /public/images/flow (WebP q85 at native 2K size — 2752×1536 / 1792×2400;
+// Next.js resizes and re-encodes per screen). Keys stay stable; swap `src`
+// for the client's own photography when it arrives.
+const flow = (file: string) => `/images/flow/${file}.webp`;
+const landscape = (file: string) => ({ src: flow(file), w: 2752, h: 1536 });
+const portrait = (file: string) => ({ src: flow(file), w: 1792, h: 2400 });
 
-export type Photo = { src: string; alt: string };
+export type Photo = { src: string; alt: string; w?: number; h?: number };
+
+/**
+ * `sizes` for an object-cover photo whose frame has a different shape. A wide photo in a
+ * tall frame is scaled up to fill the height and cropped at the sides, so the browser needs
+ * a much wider file than the frame itself — otherwise it stretches a small one and blurs.
+ * `widths` are the frame widths in vw per breakpoint; `overscan` is any extra parallax height.
+ */
+export function coverSizes(photo: Photo, frameRatio: number, widths: [string | null, number][], overscan = 1.2) {
+  const ratio = photo.w && photo.h ? photo.w / photo.h : 1.5;
+  const factor = Math.max(1, (ratio * overscan) / frameRatio);
+  return widths.map(([mq, vw]) => `${mq ? `${mq} ` : ""}${Math.min(400, Math.round(vw * factor))}vw`).join(", ");
+}
 
 // Hero footage: Our Lady of the Rocks, Bay of Kotor — self-hosted in /public/media.
 // Source: Pexels video 25460349 (Pexels licence), re-encoded H.264 High,
@@ -19,142 +34,28 @@ export const heroVideo = {
 };
 
 export const photos = {
-  heroBay: {
-    src: unsplash("photo-1728363265942-92c2202b6596"),
-    alt: "The Bay of Kotor near Perast, with its island churches beneath steep mountains",
-  },
-  budvaCoast: {
-    src: unsplash("photo-1664958451522-90ce9fd47b2c"),
-    alt: "Budva Old Town on the Adriatic coast, framed by pine trees and mountains",
-  },
-  ladyOfTheRocks: {
-    src: unsplash("photo-1719587612807-5a58ca8afcf1"),
-    alt: "Island church of Our Lady of the Rocks in the clear Adriatic water",
-  },
-  kotorRooftops: {
-    src: unsplash("photo-1634934283931-10f4b5635861"),
-    alt: "Stone houses and terracotta roofs above the Bay of Kotor",
-  },
-  durmitorLake: {
-    src: unsplash("photo-1503147943191-8935764b7a68"),
-    alt: "Black Lake beneath the peaks of Durmitor National Park",
-  },
-  taraRiver: {
-    src: unsplash("photo-1715528599141-03d04e5daba9"),
-    alt: "The turquoise Tara River flowing through forested canyon walls",
-  },
-  mountainLake: {
-    src: unsplash("photo-1651535075592-d0df68fa6f5f"),
-    alt: "A mountain lake in northern Montenegro framed by pine forest",
-  },
-  svetiStefan: {
-    src: unsplash("photo-1629716491411-c60c0f99c35a"),
-    alt: "Sveti Stefan seen through pine branches on the Adriatic coast",
-  },
-  svetiStefanDusk: {
-    src: unsplash("photo-1736786712817-ab1d1ff38eae"),
-    alt: "Sveti Stefan and the Adriatic coast at dusk",
-  },
-  stoneTerrace: {
-    src: unsplash("photo-1783538702963-1ebb1fcc7b14"),
-    alt: "A white stone terrace overlooking the sea",
-  },
-  yogaByTheSea: {
-    src: unsplash("photo-1573590330099-d6c7355ec595"),
-    alt: "A woman practising yoga beside calm water at golden hour",
-  },
-  nourishingBowl: {
-    src: unsplash("photo-1511690656952-34342bb7c2f2"),
-    alt: "A plant-based Mediterranean bowl of chickpeas, fresh vegetables, figs and herbs on a wooden table",
-  },
-  treatmentRoom: {
-    src: unsplash("photo-1611920630418-f587fdc3bf94"),
-    alt: "A warm, softly lit treatment room with a timber floor and a prepared treatment bed",
-  },
-  stoneBath: {
-    src: unsplash("photo-1781795035627-fa93f2863bba"),
-    alt: "A treatment space of stone walls, timber and a copper bath",
-  },
-  treatmentDetail: {
-    src: unsplash("photo-1731597076108-f3bbe268162f"),
-    alt: "A minimal treatment room with timber shelving and natural oils",
-  },
-  budvaHotel: {
-    src: unsplash("photo-1780852611112-a34a015bb848"),
-    alt: "A hotel pool framed by a stone arcade and cypress trees in Budva, Montenegro",
-  },
-  herbalTea: {
-    src: unsplash("photo-1571934811356-5cc061b6821f"),
-    alt: "A cup of herbal infusion surrounded by dried herbs",
-  },
-  oliveBranch: {
-    src: unsplash("photo-1541259418332-97b56947904f"),
-    alt: "Olive branch with ripening green olives",
-  },
-  ancientOlive: {
-    src: unsplash("photo-1544475925-9199e8ed85ab"),
-    alt: "An ancient olive tree growing among limestone rocks",
-  },
-  quietShore: {
-    src: unsplash("photo-1586806986411-94dce4e608a2"),
-    alt: "A figure resting on still water at sunset",
-  },
-  // Kerala (AYUSH India page)
-  keralaHouseboat: {
-    src: unsplash("photo-1602216056096-3b40cc0c9944"),
-    alt: "A traditional houseboat on the Kerala backwaters, lined with coconut palms",
-  },
-  keralaPalms: {
-    src: unsplash("photo-1679934409073-838c884261fb"),
-    alt: "Coconut palms in morning mist in Kerala",
-  },
-  keralaDawn: {
-    src: unsplash("photo-1643614331150-37823121afce"),
-    alt: "A wooden canoe on still backwater at dawn",
-  },
-  munnarHills: {
-    src: unsplash("photo-1696027356970-b1527cc0d33c"),
-    alt: "Tea plantations across the hills of Munnar, Kerala",
-  },
-  // Generated with Google Flow (Nano Banana) for AYUSH & VIVUM — /public/images/flow
-  flowTreatmentRoom: {
-    src: "/images/flow/treatment-room-stone.webp",
-    alt: "An Ayurveda treatment room with stone walls, timber beams and a linen-covered bed, the Bay of Kotor beyond the window",
-  },
-  flowShirodhara: {
-    src: "/images/flow/shirodhara-oil.webp",
-    alt: "Warm herbal oil poured from a copper vessel during a Shirodhara treatment",
-  },
-  flowPindaSwedam: {
-    src: "/images/flow/pinda-swedam.webp",
-    alt: "A therapist applying warm herbal poultices during a Pinda Swedam treatment",
-  },
-  flowHerbalTea: {
-    src: "/images/flow/herbal-tea-bay.webp",
-    alt: "Herbal tea on a stone slab on a terrace overlooking the Bay of Kotor",
-  },
-  flowHerbs: {
-    src: "/images/flow/herbs-stone-bowls.webp",
-    alt: "Ayurvedic herbs and salts in stone bowls on a rustic wooden table",
-  },
-  flowApothecary: {
-    src: "/images/flow/apothecary-shelf.webp",
-    alt: "Amber bottles of traditional preparations on a stone shelf",
-  },
-  flowArchPool: {
-    src: "/images/flow/arch-pool-sea.webp",
-    alt: "A resort pool beneath a stone arch, cypresses and the Adriatic beyond",
-  },
-  flowMeditationDeck: {
-    src: "/images/flow/meditation-deck-sea.webp",
-    alt: "A timber meditation deck among olive trees above the sea at dusk",
-  },
-  flowYogaPavilion: {
-    src: "/images/flow/yoga-pavilion-cliff.webp",
-    alt: "A small group practising Yoga in a stone pavilion on a cliff above the sea",
-  },
-  flowCourtyard: {
-    src: "/images/flow/stone-courtyard.webp",
-    alt: "A stone courtyard with a pergola, olive trees and quiet seating",
-  },
+  // Montenegro
+  heroBay: { ...landscape("kotor-terrace-a"), alt: "The Bay of Kotor near Perast from a stone terrace, with the two island churches beneath the mountains" },
+  ladyOfTheRocks: { ...landscape("kotor-terrace-b"), alt: "Our Lady of the Rocks and St George islands in the Bay of Kotor, framed by olive and cypress trees" },
+  kotorRooftops: { ...landscape("kotor-rooftops"), alt: "Terracotta rooftops of Kotor old town above the bay and mountains" },
+  budvaCoast: { ...landscape("budva-old-town"), alt: "Budva old town on the Adriatic coast, framed by umbrella pines" },
+  svetiStefanDusk: { ...landscape("sveti-stefan-dusk"), alt: "Sveti Stefan island village at dusk on the Adriatic coast" },
+  durmitorLake: { ...landscape("durmitor-black-lake"), alt: "Morning mist over the Black Lake beneath the peaks of Durmitor" },
+  mountainLake: { ...landscape("mountain-lake-jetty"), alt: "A quiet mountain lake with a wooden jetty, framed by pine forest" },
+  taraRiver: { ...landscape("tara-canyon"), alt: "The Tara River winding through its forested canyon" },
+  stoneTerrace: { ...landscape("stone-terrace-daybed"), alt: "A limestone terrace with a linen daybed and an olive tree above the calm Adriatic" },
+  yogaByTheSea: { ...portrait("yoga-terrace-sea"), alt: "A woman meditating on a stone terrace above the sea at golden hour" },
+  nourishingBowl: { ...portrait("nourishing-bowl"), alt: "A nourishing bowl of chickpeas, roasted vegetables, greens and figs on a wooden table" },
+  stoneBath: { ...portrait("stone-copper-bath"), alt: "A stone treatment room with a copper bath, folded linen and herbs" },
+
+  // Ayurveda
+  abhyanga: { ...portrait("ayurveda-abhyanga"), alt: "A therapist applying warm oil during an Abhyanga massage on a wooden treatment table" },
+  shirodhara: { ...portrait("ayurveda-shirodhara"), alt: "Warm oil flowing from a brass vessel during a Shirodhara treatment" },
+  panchakarmaRoom: { ...landscape("ayurveda-panchakarma-room"), alt: "A Panchakarma treatment room of stone and timber, with a window onto the Bay of Kotor" },
+  nadiPariksha: { ...portrait("ayurveda-nadi-pariksha"), alt: "An Ayurvedic physician reading a client's pulse during consultation" },
+  herbalOil: { ...portrait("ayurveda-herbal-oil"), alt: "Herbal oil being prepared in a copper pot beside a stone mortar and pestle" },
+  herbsFlatlay: { ...landscape("ayurveda-herbs-flatlay"), alt: "Turmeric, ashwagandha, tulsi, neem and ghee in brass and stone bowls on linen" },
+  pindaSweda: { ...portrait("ayurveda-pinda-sweda"), alt: "Herbal poultices warming in a copper pan for Pinda Sweda" },
+  yogaTherapy: { ...landscape("ayurveda-yoga-therapy"), alt: "A yoga therapist guiding a client's posture in a stone pavilion above the sea" },
+  ayurvedicLunch: { ...portrait("ayurveda-lunch"), alt: "An Ayurvedic lunch of kitchari and vegetables in brass bowls on a terrace" },
 } satisfies Record<string, Photo>;

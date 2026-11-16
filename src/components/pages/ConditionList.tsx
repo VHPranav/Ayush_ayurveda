@@ -98,7 +98,7 @@ export function ConditionList() {
                       <p className="mt-3 leading-relaxed text-ink/85 md:text-lg">{c.who}</p>
                       <p className="eyebrow mt-8 text-[0.6rem] text-stone-deep">Before & after</p>
                       <p className="mt-3 leading-relaxed text-muted">
-                        A pre-arrival consultation (in the UK or online) prepares you; a final review and 30-day follow-up
+                        A pre-arrival online consultation prepares you; a final review and 30-day follow-up
                         continue your care at home.
                       </p>
                     </div>

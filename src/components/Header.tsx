@@ -42,8 +42,8 @@ export function Header() {
         }`}
         onMouseLeave={() => setMenu(null)}
       >
-        <div className="container-page flex items-center justify-between gap-6">
-          <Link href="/" aria-label="AYUSH & VIVUM — home">
+        <div className="flex w-full items-center justify-between gap-6 px-5 md:px-10 xl:px-16">
+          <Link href="/" aria-label="AYUSH — home">
             <Logo tone={light || open ? "light" : "dark"} />
           </Link>
 
@@ -55,7 +55,7 @@ export function Header() {
                     href={item.href}
                     onFocus={() => setMenu(item.children ? item.label : null)}
                     aria-current={isActive(item.href) ? "page" : undefined}
-                    className={`relative py-2 text-[0.68rem] tracking-[0.2em] uppercase transition-colors duration-500 after:absolute after:bottom-0 after:left-0 after:h-px after:w-full after:origin-left after:bg-current after:transition-transform after:duration-500 hover:after:scale-x-100 ${
+                    className={`relative py-2 font-label text-[0.69rem] tracking-[0.2em] uppercase transition-colors duration-500 after:absolute after:bottom-0 after:left-0 after:h-px after:w-full after:origin-left after:bg-current after:transition-transform after:duration-500 hover:after:scale-x-100 ${
                       isActive(item.href) ? "after:scale-x-100" : "after:scale-x-0"
                     } ${light ? "text-ivory/90 hover:text-ivory" : "text-adriatic/80 hover:text-adriatic"}`}
                   >
@@ -97,7 +97,7 @@ export function Header() {
           <div className="flex items-center gap-3">
             <Link
               href="/contact"
-              className={`hidden rounded-full px-5 py-3 text-[0.68rem] tracking-[0.2em] uppercase transition-colors duration-500 sm:inline-block ${
+              className={`hidden rounded-full px-5 py-3 font-label text-[0.65rem] font-medium tracking-[0.2em] uppercase transition-colors duration-500 sm:inline-block ${
                 light ? "bg-ivory/95 text-adriatic-deep hover:bg-ivory" : "bg-olive text-ivory hover:bg-forest"
               }`}
             >

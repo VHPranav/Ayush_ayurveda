@@ -1,91 +1,81 @@
 "use client";
 
+import Link from "next/link";
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "motion/react";
 import { HeroVideo } from "../ui/HeroVideo";
-import { Button } from "../ui/Button";
+import { Arrow } from "../ui/Button";
 
-const lines = ["Where Eastern Wisdom", "Meets Montenegro’s", "Healing Nature"];
+const title = ["Ayush", "Montenegro"];
+
+const pill =
+  "group inline-flex items-center justify-center gap-3 rounded-full px-7 py-3.5 font-label text-[0.65rem] font-semibold tracking-[0.14em] uppercase md:px-8 md:py-4 transition-[background-color,border-color,color] duration-500 ease-[var(--ease-calm)]";
 
 export function Hero() {
   const ref = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
-  const imageY = useTransform(scrollYProgress, [0, 1], ["0%", "18%"]);
-  const contentY = useTransform(scrollYProgress, [0, 1], ["0%", "-30%"]);
-  const contentOpacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
+  const videoY = useTransform(scrollYProgress, [0, 1], ["0%", "18%"]);
+  const contentY = useTransform(scrollYProgress, [0, 1], ["0%", "-24%"]);
+  const contentOpacity = useTransform(scrollYProgress, [0, 0.55], [1, 0]);
 
   return (
-    <section ref={ref} className="relative h-[100svh] min-h-[640px] overflow-hidden bg-adriatic-deep text-ivory">
-      {/* Landscape: slow cinematic reveal, then light parallax on scroll */}
-      <motion.div className="absolute inset-0" style={{ y: imageY }}>
+    <section ref={ref} className="relative h-[100svh] min-h-[640px] overflow-hidden bg-[#070b0c] text-ivory">
+      {/* Bay of Kotor film — slow cinematic reveal, light parallax on scroll */}
+      <motion.div className="absolute inset-0" style={{ y: videoY }}>
         <div className="hero-reveal absolute inset-0">
           <HeroVideo />
         </div>
       </motion.div>
 
-      {/* Morning light drifting across the bay */}
-      <div
-        aria-hidden
-        className="animate-sunlight pointer-events-none absolute -top-1/4 right-[-10%] h-[90%] w-[70%] rounded-full bg-[radial-gradient(closest-side,rgba(255,236,200,0.35),transparent)] mix-blend-soft-light"
-      />
-      {/* Soft shimmer on the water */}
-      <div
-        aria-hidden
-        className="animate-shimmer pointer-events-none absolute inset-x-0 bottom-[18%] h-[22%] bg-[linear-gradient(90deg,transparent,rgba(255,255,255,0.18)_30%,transparent_55%,rgba(255,255,255,0.14)_75%,transparent)] mix-blend-overlay blur-md"
-      />
-
-      {/* Legibility veils */}
-      <div className="absolute inset-0 bg-gradient-to-r from-adriatic-deep/85 via-adriatic-deep/45 to-adriatic-deep/5" />
-      <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-adriatic-deep/60 to-transparent" />
-      <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-adriatic-deep/70 to-transparent" />
+      {/* Neutral veils keep the footage's natural colour while holding the type */}
+      <div aria-hidden className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(0,0,0,0.6)_0%,transparent_45%)]" />
+      <div aria-hidden className="absolute inset-0 bg-[radial-gradient(circle,transparent_40%,rgba(0,0,0,0.45)_100%)]" />
+      <div aria-hidden className="absolute inset-0 bg-[linear-gradient(to_top,#070b0c_0%,rgba(7,11,12,0.55)_28%,transparent_58%)]" />
 
       <motion.div
         style={{ y: contentY, opacity: contentOpacity }}
-        className="container-page relative flex h-full flex-col justify-end pb-12 sm:pb-16 lg:pb-20"
+        className="relative flex h-full w-full flex-col justify-end px-5 md:px-10 xl:px-16 pb-14 sm:pb-16 lg:pb-20"
       >
-        <div className="max-w-4xl">
-          <p className="eyebrow fade-in flex items-center gap-4 text-ivory/85" style={{ animationDelay: "0.9s" }}>
-            <span className="h-px w-5 bg-gold" />
-            Ayurveda · Yoga · Wellness · Montenegro
-          </p>
-
-          <h1 className="mt-6 heading-display">
-            {lines.map((line, i) => (
-              <span key={line} className="block overflow-hidden pb-[0.08em]">
-                <span className="rise-line block" style={{ animationDelay: `${0.5 + i * 0.14}s` }}>
-                  {line}
+        <div className="flex flex-col gap-10 lg:flex-row lg:items-end lg:justify-between lg:gap-16">
+          <div>
+            <h1 className="font-hero text-[2.75rem] leading-[0.95] tracking-[0.01em] text-white min-[400px]:text-[3rem] sm:text-6xl md:text-[4.5rem] md:leading-[0.92] lg:text-[7vw]">
+              {title.map((line, i) => (
+                <span key={line} className="-mb-[0.14em] block overflow-hidden pb-[0.2em]">
+                  <span className="rise-line block" style={{ animationDelay: `${0.45 + i * 0.16}s` }}>
+                    {line}
+                  </span>
                 </span>
-              </span>
-            ))}
-          </h1>
+              ))}
+            </h1>
 
-          <p
-            className="fade-rise mt-7 max-w-xl text-base leading-relaxed text-ivory/85 md:text-lg"
-            style={{ animationDelay: "1.1s" }}
-          >
-            Personalised Ayurveda, yoga and integrative wellness in Montenegro — shaped by the Adriatic Sea, the
-            mountains, a mild climate and the Mediterranean way of life.
-          </p>
+            <p
+              className="fade-rise mt-5 max-w-md font-display text-xl leading-snug tracking-[0.02em] text-ivory/90 italic md:mt-7 md:text-2xl 2xl:max-w-xl 2xl:text-3xl"
+              style={{ animationDelay: "1.15s" }}
+            >
+              Where Eastern wisdom meets the healing nature of the Bay of Kotor.
+            </p>
+          </div>
 
-          <div className="fade-rise mt-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap" style={{ animationDelay: "1.35s" }}>
-            <Button href="/programmes" variant="solid">
-              Therapeutic Programmes
-            </Button>
-            <Button href="/vivum" variant="outline-light">
-              Wellness Journeys
-            </Button>
+          <div className="fade-rise lg:shrink-0 lg:pb-2" style={{ animationDelay: "1.35s" }}>
+            <Link href="/programmes" className={`${pill} bg-stone text-forest-deep hover:bg-ivory`}>
+              Explore Programmes
+              <Arrow />
+            </Link>
           </div>
         </div>
       </motion.div>
 
-      <p
-        className="fade-in absolute right-10 bottom-36 hidden text-right font-display text-2xl leading-snug text-ivory/90 italic lg:block"
-        style={{ animationDelay: "2s" }}
+      {/* Scroll cue */}
+      <div
+        aria-hidden
+        className="fade-in absolute bottom-6 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-3 lg:flex"
+        style={{ animationDelay: "2.2s" }}
       >
-        A different place.
-        <br />A deeper you.
-        <span className="mt-3 ml-auto block h-px w-12 bg-gold" />
-      </p>
+        <span className="font-label text-[0.6rem] tracking-[0.4em] text-ivory/60 uppercase">Scroll</span>
+        <span className="relative h-10 w-px overflow-hidden bg-white/15">
+          <span className="animate-scroll-cue absolute inset-0 bg-white/70" />
+        </span>
+      </div>
     </section>
   );
 }

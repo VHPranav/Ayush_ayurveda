@@ -18,7 +18,7 @@ export function FinalCta() {
   return (
     <section ref={ref} id="book" className="relative flex min-h-[92svh] items-end overflow-hidden bg-adriatic-deep text-ivory">
       <motion.div style={{ scale: imageScale }} className="absolute inset-0">
-        <Image src={photos.budvaCoast.src} alt={photos.budvaCoast.alt} fill quality={70} sizes="100vw" className="object-cover" />
+        <Image src={photos.budvaCoast.src} alt={photos.budvaCoast.alt} fill quality={80} sizes="100vw" className="object-cover" />
       </motion.div>
 
       {/* Soft dusk light */}
@@ -35,11 +35,7 @@ export function FinalCta() {
 
       <div className="container-page relative grid gap-10 pt-40 pb-20 md:grid-cols-12 md:pb-28">
         <Reveal className="md:col-span-7">
-          <p className="eyebrow flex items-center gap-4 text-ivory/80">
-            <span className="h-px w-10 bg-gold" />
-            Begin Your Journey
-          </p>
-          <h2 className="mt-6 heading-display">
+          <h2 className="heading-display">
             Healthier People.
             <span className="block">A Brighter Tomorrow.</span>
           </h2>
@@ -50,9 +46,6 @@ export function FinalCta() {
           <div className="mt-10 flex flex-col gap-3 sm:flex-row">
             <Button href="/contact" variant="solid">
               Book a Consultation
-            </Button>
-            <Button href="/contact" variant="outline-light">
-              Speak With Our Team
             </Button>
           </div>
         </Reveal>

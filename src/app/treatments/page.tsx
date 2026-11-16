@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import { ParallaxFill } from "@/components/ui/ParallaxFill";
+import {  ParallaxFill } from "@/components/ui/ParallaxFill";
 import { menu } from "@/lib/treatments";
 import { euro } from "@/lib/programmes";
 import { photos } from "@/lib/images";
 import { FadeIn } from "@/components/ui/FadeIn";
 import { Reveal } from "@/components/ui/Reveal";
-import { BookingBand, Eyebrow, Icon } from "@/components/ui/Kit";
+import { BookingBand, Icon } from "@/components/ui/Kit";
 
 export const metadata: Metadata = {
   title: "Treatments",
@@ -18,8 +18,7 @@ export default function TreatmentsPage() {
       {/* Menu masthead */}
       <section className="container-page pt-40 pb-16 text-center md:pt-48">
         <FadeIn delay={0.2}>
-          <p className="eyebrow text-stone-deep">AYUSH Montenegro · Hyatt Regency Kotor Bay</p>
-          <h1 className="mx-auto mt-8 max-w-4xl heading-display text-adriatic">The Individual Wellness &amp; Ayurvedic Menu</h1>
+          <h1 className="mx-auto max-w-4xl heading-display text-adriatic">The Individual Wellness &amp; Ayurvedic Menu</h1>
           <div className="mx-auto mt-8 flex max-w-md items-center gap-4">
             <span className="h-px flex-1 bg-stone" />
             <Icon name="leaf" className="h-5 w-5 text-olive" />
@@ -48,11 +47,10 @@ export default function TreatmentsPage() {
       {/* The consultations, featured */}
       <section className="container-page grid items-center gap-12 py-24 lg:grid-cols-2">
         <Reveal className="relative aspect-[4/3] overflow-hidden rounded-[2rem]">
-          <ParallaxFill src={photos.flowHerbalTea.src} alt={photos.flowHerbalTea.alt} quality={75} sizes="(min-width: 1024px) 45vw, 100vw" className="object-cover" />
+          <ParallaxFill src={photos.herbsFlatlay.src} alt={photos.herbsFlatlay.alt} quality={75} sizes="(min-width: 1024px) 45vw, 100vw" className="object-cover" />
         </Reveal>
         <Reveal delay={0.1}>
-          <Eyebrow>The foundation</Eyebrow>
-          <h2 className="mt-6 font-display text-4xl font-light text-adriatic md:text-5xl">Consultations</h2>
+          <h2 className="font-display text-4xl font-light text-adriatic md:text-5xl">Consultations</h2>
           <dl className="mt-10 space-y-8">
             <div>
               <div className="flex items-baseline gap-3">
@@ -112,8 +110,7 @@ export default function TreatmentsPage() {
         <Reveal className="grid gap-8 rounded-[2rem] bg-adriatic-deep p-10 text-ivory md:grid-cols-[auto_1fr] md:p-14">
           <Icon name="shield" className="h-10 w-10 text-gold" />
           <div>
-            <p className="eyebrow text-[0.62rem] text-gold">Clinical note</p>
-            <h2 className="mt-3 font-display text-3xl font-light md:text-4xl">Panchakarma is never sold as a stand-alone service</h2>
+            <h2 className="font-display text-3xl font-light md:text-4xl">Panchakarma is never sold as a stand-alone service</h2>
             <p className="mt-4 max-w-3xl leading-relaxed text-ivory/75">
               Clinical cleansing therapies (Shodhana) are available exclusively within physician-supervised, multi-day
               programmes, after an eligibility assessment. Selected services can be combined into thematic bundles — such
