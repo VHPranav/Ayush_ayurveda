@@ -128,6 +128,7 @@ export function Header() {
         {open && (
           <motion.div
             id="mobile-menu"
+            data-lenis-prevent
             className="fixed inset-0 z-[45] flex flex-col overflow-y-auto bg-adriatic-deep px-6 pt-28 pb-12 text-ivory"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}

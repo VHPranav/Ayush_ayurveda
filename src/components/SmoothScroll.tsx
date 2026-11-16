@@ -20,9 +20,18 @@ export function SmoothScroll({ children }: { children: React.ReactNode }) {
     if (reduced) return;
 
     const instance = new Lenis({
-      duration: 1.25,
       autoRaf: true,
       anchors: { offset: -80 },
+      // Buttery feel: a continuous ease toward the target (lerp) rather than a fixed-length
+      // tween per wheel tick. Lower = softer glide; 0.08 is a touch softer than the default.
+      lerp: 0.08,
+      smoothWheel: true,
+      // Phones: by default Lenis leaves touch native, so swipes weren't smoothed at all.
+      syncTouch: true,
+      syncTouchLerp: 0.08,
+      touchInertiaExponent: 1.7,
+      // Only vertical gestures are taken over; horizontal swipers stay native.
+      gestureOrientation: "vertical",
     });
     lenis.current = instance;
     return () => {
