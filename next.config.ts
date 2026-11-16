@@ -10,7 +10,8 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       { source: "/vivum/:path*", destination: "/", permanent: false },
-      { source: "/uk", destination: "/", permanent: false },
+      // The UK centre has its own site
+      { source: "/uk", destination: "https://ayushuk.com", permanent: false },
       { source: "/india", destination: "/", permanent: false },
       { source: "/montenegro", destination: "/", permanent: false },
       { source: "/travel", destination: "/", permanent: false },

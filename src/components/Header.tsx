@@ -53,6 +53,7 @@ export function Header() {
                 <li key={item.href} className="relative" onMouseEnter={() => setMenu(item.children ? item.label : null)}>
                   <Link
                     href={item.href}
+                    {...(item.external ? { target: "_blank", rel: "noopener noreferrer", "aria-label": `${item.label} — opens ayushuk.com in a new tab` } : {})}
                     onFocus={() => setMenu(item.children ? item.label : null)}
                     aria-current={isActive(item.href) ? "page" : undefined}
                     className={`relative py-2 font-label text-[0.69rem] tracking-[0.2em] uppercase transition-colors duration-500 after:absolute after:bottom-0 after:left-0 after:h-px after:w-full after:origin-left after:bg-current after:transition-transform after:duration-500 hover:after:scale-x-100 ${
@@ -60,6 +61,7 @@ export function Header() {
                     } ${light ? "text-ivory/90 hover:text-ivory" : "text-adriatic/80 hover:text-adriatic"}`}
                   >
                     {item.label}
+                    {item.external && <span aria-hidden className="ml-1 inline-block text-[0.6rem]">↗</span>}
                   </Link>
 
                   {item.children && (
@@ -144,8 +146,9 @@ export function Header() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.1 + i * 0.05, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
                   >
-                    <Link href={item.href} className="font-display text-4xl font-light">
+                    <Link href={item.href} {...(item.external ? { target: "_blank", rel: "noopener noreferrer", "aria-label": `${item.label} — opens ayushuk.com in a new tab` } : {})} className="font-display text-4xl font-light">
                       {item.label}
+                      {item.external && <span aria-hidden className="ml-2 align-top text-lg text-ivory/60">↗</span>}
                     </Link>
                     {item.children && (
                       <ul className="mt-2 flex flex-wrap gap-x-5 gap-y-1">

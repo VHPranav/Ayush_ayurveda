@@ -1,12 +1,22 @@
 // Site navigation — structure follows the AYUSH International website plan (§10),
 // condensed to the pages that exist.
-export type NavItem = { label: string; href: string; children?: { label: string; href: string; note?: string }[] };
+export type NavItem = {
+  label: string;
+  href: string;
+  /** Opens another website (in a new tab). */
+  external?: boolean;
+  children?: { label: string; href: string; note?: string }[];
+};
+
+/** AYUSH's UK centre has its own website. */
+export const UK_SITE = "https://ayushuk.com";
 
 export const navItems: NavItem[] = [
   { label: "About", href: "/ayush" },
   { label: "Treatments", href: "/treatments" },
   { label: "Conditions", href: "/conditions" },
   { label: "Programmes", href: "/programmes" },
+  { label: "UK", href: UK_SITE, external: true },
   { label: "Contact", href: "/contact" },
 ];
 
