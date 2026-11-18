@@ -39,11 +39,11 @@ const jost = Jost({
 
 export const metadata: Metadata = {
   title: {
-    default: "AYUSH — Ayurveda, Yoga & Integrative Wellness in Montenegro",
-    template: "%s — AYUSH",
+    default: "AYUSH Ayurveda Clinic — Montenegro",
+    template: "%s — AYUSH Ayurveda Clinic",
   },
   description:
-    "Where Eastern wisdom meets Montenegro’s healing nature. Personalised Ayurveda, yoga and integrative wellness shaped by the Adriatic Sea, the mountains and the Mediterranean way of life.",
+    "AYUSH Ayurveda Clinic, Montenegro: traditional Ayurvedic medicine and personalised clinical care — consultations, Panchakarma, Ayurvedic therapies and therapeutic Yoga.",
 };
 
 export const viewport: Viewport = {

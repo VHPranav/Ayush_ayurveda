@@ -52,7 +52,7 @@ export function Hero() {
               className="fade-rise mt-5 max-w-md font-display text-xl leading-snug tracking-[0.02em] text-ivory/90 italic md:mt-7 md:text-2xl 2xl:max-w-xl 2xl:text-3xl"
               style={{ animationDelay: "1.15s" }}
             >
-              Where Eastern wisdom meets the healing nature of the Bay of Kotor.
+              Ayurveda Clinic — traditional Ayurvedic medicine and personalised clinical care on the Bay of Kotor.
             </p>
           </div>
 

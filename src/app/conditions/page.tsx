@@ -5,7 +5,7 @@ import { ConditionList } from "@/components/pages/ConditionList";
 import { FadeIn } from "@/components/ui/FadeIn";
 import { Reveal } from "@/components/ui/Reveal";
 import { Arrow } from "@/components/ui/Button";
-import { BookingBand, Icon } from "@/components/ui/Kit";
+import { BookingBand, ClinicalNote, Icon } from "@/components/ui/Kit";
 
 export const metadata: Metadata = {
   title: "Condition-focused programmes",
@@ -38,6 +38,15 @@ export default function ConditionsPage() {
       <section className="container-page pb-24">
         <ConditionList />
       </section>
+
+      <ClinicalNote title="Evidence and referral">
+        <p>
+          Ayurvedic care for these concerns is offered in a supportive role. The scientific evidence for many
+          traditional therapies is still limited, and we do not claim to cure, treat or prevent disease. If you have
+          new, worsening or unexplained symptoms, please see your doctor first — and if your assessment shows a need for
+          conventional care, your practitioner will advise referral.
+        </p>
+      </ClinicalNote>
 
       <section className="container-page pb-28">
         <Reveal>

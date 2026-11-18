@@ -5,11 +5,46 @@ import { euro } from "@/lib/programmes";
 import { photos } from "@/lib/images";
 import { FadeIn } from "@/components/ui/FadeIn";
 import { Reveal } from "@/components/ui/Reveal";
-import { BookingBand, Icon } from "@/components/ui/Kit";
+import { BookingBand, ContentSections, Icon, type ContentBlock } from "@/components/ui/Kit";
+
+// Strategy plan §5: purpose, process, duration, suitability, contraindications and aftercare.
+const treatmentInfo: ContentBlock[] = [
+  {
+    id: "suitability",
+    title: "Suitability",
+    lede: "Every treatment is chosen after consultation.",
+    body: [
+      "Your practitioner explains the purpose, process and duration of each recommended therapy, and confirms it is suitable for you before you consent.",
+    ],
+  },
+  {
+    id: "contraindications",
+    title: "Contraindications",
+    lede: "Some therapies are not suitable for everyone.",
+    points: [
+      "Pregnancy — several therapies are avoided or adapted",
+      "Fever, acute infection or acute inflammation",
+      "Skin conditions or allergies affecting oils or herbal powders",
+      "Heart or blood-pressure conditions — heat therapies may be unsuitable",
+      "Recent surgery, injury or certain medicines",
+    ],
+  },
+  {
+    id: "aftercare",
+    title: "Aftercare",
+    lede: "Small steps help you get the most from each session.",
+    points: [
+      "Rest for a while after treatment and keep warm",
+      "Wait before showering after oil therapies, as advised",
+      "Eat light, warm food on treatment days",
+      "Tell us about any unexpected reaction",
+    ],
+  },
+];
 
 export const metadata: Metadata = {
   title: "Treatments",
-  description: "The individual wellness and Ayurvedic treatment menu at AYUSH Montenegro, Hyatt Regency Kotor Bay.",
+  description: "The Ayurvedic treatment menu at AYUSH Ayurveda Clinic, Montenegro — Hyatt Regency Kotor Bay.",
 };
 
 export default function TreatmentsPage() {
@@ -104,6 +139,8 @@ export default function TreatmentsPage() {
           </div>
         </section>
       ))}
+
+      <ContentSections blocks={treatmentInfo} />
 
       {/* Clinical note */}
       <section className="container-page pb-28">

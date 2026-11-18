@@ -23,12 +23,23 @@ function tangentAngle(t: number) {
   return (Math.atan2(y2 - y1, x2 - x1) * 180) / Math.PI;
 }
 
+// Round to 2 decimals: Node and browsers can differ in the last float digits
+// of Math.atan2 etc., which causes SSR hydration mismatches.
+const r = (n: number) => Math.round(n * 100) / 100;
+
 const leaves = Array.from({ length: 13 }, (_, i) => {
-  const t = 0.1 + i * 0.068;
+  const t = r(0.1 + i * 0.068);
   const side = i % 2 === 0 ? -1 : 1;
   const len = 70 + ((i * 37) % 28) - i * 2;
   const [x, y] = bezier(t);
-  return { x, y, angle: tangentAngle(t) + side * (38 + ((i * 13) % 14)), len, w: len * 0.2, t };
+  return {
+    x: r(x),
+    y: r(y),
+    angle: r(tangentAngle(t) + side * (38 + ((i * 13) % 14))),
+    len,
+    w: r(len * 0.2),
+    t,
+  };
 });
 
 const olives = [
@@ -37,7 +48,7 @@ const olives = [
   { t: 0.64, dx: 12, dy: 20 },
 ].map(({ t, dx, dy }) => {
   const [x, y] = bezier(t);
-  return { cx: x + dx, cy: y + dy, t };
+  return { cx: r(x + dx), cy: r(y + dy), t };
 });
 
 function Leaf({ x, y, angle, len, w, t, progress }: (typeof leaves)[number] & { progress: MotionValue<number> }) {

@@ -19,7 +19,7 @@ export function Footer() {
           <div className="md:col-span-4">
             <Logo tone="light" animated={false} className="h-24 md:h-28" />
             <p className="mt-8 max-w-xs font-display text-2xl leading-snug text-ivory/85 italic">
-              Wellness for People and the Places We Call Home.
+              Traditional Ayurvedic medicine and personalised clinical care.
             </p>
             <span className="mt-4 block h-px w-12 bg-gold" />
           </div>
@@ -44,7 +44,7 @@ export function Footer() {
           <div className="md:col-span-4">
             <p className="eyebrow text-[0.6rem] text-ivory/50">Begin</p>
             <p className="mt-5 max-w-xs leading-relaxed text-ivory/75">
-              Every programme starts with a personal consultation. Tell us what you are looking for and our team will
+              All care starts with a practitioner-led consultation. Tell us what you are looking for and our team will
               guide you.
             </p>
             <Link
@@ -73,14 +73,19 @@ export function Footer() {
 
         <div className="flex flex-col gap-4 pt-8 text-[0.8rem] text-ivory/50 md:flex-row md:items-center md:justify-between">
           <div className="space-y-1">
-            <p>© {new Date().getFullYear()} AYUSH — Ayurveda &amp; Yoga Therapy · Montenegro</p>
+            <p>© {new Date().getFullYear()} AYUSH Ayurveda Clinic · Montenegro</p>
           </div>
           <ul className="flex flex-wrap gap-x-6 gap-y-2">
-            {["Privacy Policy", "Booking Terms", "Medical Disclaimer", "Accessibility"].map((l) => (
-              <li key={l}>
-                <a href="#" className="transition-colors hover:text-ivory">
-                  {l}
-                </a>
+            {[
+              { label: "Privacy", href: "/patient-information#privacy" },
+              { label: "Cancellation Terms", href: "/patient-information#cancellation" },
+              { label: "Scope of Practice", href: "/clinical-governance#scope" },
+              { label: "Complaints", href: "/clinical-governance#complaints" },
+            ].map((l) => (
+              <li key={l.label}>
+                <Link href={l.href} className="transition-colors hover:text-ivory">
+                  {l.label}
+                </Link>
               </li>
             ))}
           </ul>

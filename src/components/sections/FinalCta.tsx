@@ -40,8 +40,7 @@ export function FinalCta() {
             <span className="block">A Brighter Tomorrow.</span>
           </h2>
           <p className="mt-6 max-w-lg text-base leading-relaxed text-ivory/85 md:text-lg">
-            Personalised care, meaningful experiences and the healing nature of Montenegro. Your journey begins with a
-            conversation.
+            Practitioner-led Ayurvedic care in the calm of Montenegro. Your care begins with a consultation.
           </p>
           <div className="mt-10 flex flex-col gap-3 sm:flex-row">
             <Button href="/contact" variant="solid">

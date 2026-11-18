@@ -33,8 +33,8 @@ export function WhyMontenegro() {
           </Reveal>
           <Reveal delay={0.15} className="self-end md:col-span-5 md:col-start-8">
             <p className="text-base leading-relaxed text-muted md:text-lg">
-              From the Adriatic coast to pristine mountains, rivers and healing landscapes, Montenegro offers a unique
-              natural setting for restoration, balance and long-term wellbeing.
+              From the Adriatic coast to pristine mountains, rivers and quiet landscapes, Montenegro offers a calm
+              natural setting for rest and recovery during your care.
             </p>
             <Button href="/programmes" variant="outline-dark" className="mt-8">
               Explore Programmes

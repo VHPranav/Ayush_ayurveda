@@ -58,4 +58,7 @@ export const photos = {
   pindaSweda: { ...portrait("ayurveda-pinda-sweda"), alt: "Herbal poultices warming in a copper pan for Pinda Sweda" },
   yogaTherapy: { ...landscape("ayurveda-yoga-therapy"), alt: "A yoga therapist guiding a client's posture in a stone pavilion above the sea" },
   ayurvedicLunch: { ...portrait("ayurveda-lunch"), alt: "An Ayurvedic lunch of kitchari and vegetables in brass bowls on a terrace" },
+
+  // Team (client-supplied photography)
+  prabodh: { src: "/images/flow/prabodh.jpeg", w: 1244, h: 1600, alt: "Portrait of Dr Prabodh Raghavan, Consultant Ayurvedic Physician" },
 } satisfies Record<string, Photo>;

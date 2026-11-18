@@ -21,7 +21,7 @@ const programmes: Programme[] = [
   },
   {
     title: "Yoga Therapy",
-    href: "/ayush",
+    href: "/yoga-therapy",
     subtitle: "Therapeutic Hatha · Pranayama · Meditation",
     body: "Yoga as therapy, not exercise — adapted to your physical ability and integrated with your treatment plan.",
     tag: "Yoga Therapy",

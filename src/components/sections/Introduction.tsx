@@ -25,7 +25,7 @@ export function Introduction() {
           </p>
           <h2 className="mt-8 font-hero text-[2.6rem] leading-[1.04] text-forest sm:text-6xl md:text-7xl lg:text-[5.5rem]">
             Ancient knowledge,
-            <span className="block font-display font-light text-olive italic">a healing setting,</span>
+            <span className="block font-display font-light text-olive italic">a calm setting,</span>
             one philosophy.
           </h2>
           <p className="mt-10 max-w-xl text-base leading-relaxed text-muted md:text-lg">
@@ -66,7 +66,7 @@ export function Introduction() {
           <Reveal delay={0.1} className="lg:col-span-5 lg:col-start-8">
             <p className="flex items-center gap-3 font-label text-[0.68rem] font-medium tracking-[0.3em] text-stone-deep uppercase">
               <span className="h-1.5 w-1.5 rounded-full bg-olive" />
-              Ayurveda &amp; Yoga Therapy Centre
+              AYUSH Ayurveda Clinic
             </p>
             <h3 className="mt-6 font-hero text-4xl leading-[1.08] text-forest md:text-5xl">
               Specialist care, from first consultation to follow-up

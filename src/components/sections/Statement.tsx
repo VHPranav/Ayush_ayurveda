@@ -45,8 +45,8 @@ export function StatementContent({ progress }: { progress: MotionValue<number> }
           style={{ opacity: para, y: paraY }}
           className="mx-auto mt-10 max-w-xl text-base leading-relaxed text-muted md:text-lg"
         >
-          A premium meeting point between East and the Mediterranean — authentic Eastern knowledge, delivered within
-          the healing nature of Montenegro.
+          Authentic Ayurvedic knowledge and practitioner-led clinical care, delivered within the calm natural setting
+          of Montenegro.
         </motion.p>
       </div>
     </div>

@@ -2,6 +2,7 @@ import { ParallaxFill } from "@/components/ui/ParallaxFill";
 import type { Photo } from "@/lib/images";
 import { Reveal } from "./Reveal";
 import { Button } from "./Button";
+import { FadeIn } from "./FadeIn";
 
 /** Display heading + optional lede. */
 export function SectionHead({
@@ -66,6 +67,102 @@ export function BookingBand({
           </div>
         </Reveal>
       </div>
+    </section>
+  );
+}
+
+/** Light-top page masthead — same layout as the Conditions and Contact pages. */
+export function PageIntro({
+  title,
+  accent,
+  lede,
+  note,
+}: {
+  title: React.ReactNode;
+  accent?: React.ReactNode;
+  lede?: React.ReactNode;
+  /** Shield callout shown instead of (or below) the lede. */
+  note?: React.ReactNode;
+}) {
+  return (
+    <section className="container-page pt-40 pb-16 md:pt-48">
+      <div className="grid gap-12 lg:grid-cols-12">
+        <FadeIn delay={0.2} className="lg:col-span-7">
+          <h1 className="heading-display text-adriatic">
+            {title}
+            {accent && <span className="block text-olive">{accent}</span>}
+          </h1>
+        </FadeIn>
+        <FadeIn delay={0.45} className="self-end lg:col-span-4 lg:col-start-9">
+          {lede && <p className="leading-relaxed text-muted md:text-lg">{lede}</p>}
+          {note && (
+            <div className={`flex gap-4 rounded-2xl border border-olive/30 bg-olive/5 p-6 ${lede ? "mt-6" : ""}`}>
+              <Icon name="shield" className="h-6 w-6 shrink-0 text-olive" />
+              <p className="text-[0.95rem] leading-relaxed text-ink/80">{note}</p>
+            </div>
+          )}
+        </FadeIn>
+      </div>
+    </section>
+  );
+}
+
+export type ContentBlock = {
+  id: string;
+  title: string;
+  lede?: string;
+  /** Paragraphs, then an optional bullet list. */
+  body?: string[];
+  points?: string[];
+};
+
+/** Numbered content sections — same layout as the Treatments menu tiers. */
+export function ContentSections({ blocks }: { blocks: ContentBlock[] }) {
+  return (
+    <>
+      {blocks.map((b, i) => (
+        <section key={b.id} id={b.id} className="scroll-mt-36 border-t border-stone/60 py-24">
+          <div className="container-page grid gap-12 lg:grid-cols-12">
+            <Reveal className="lg:col-span-4">
+              <p className="font-display text-7xl font-light text-gold/70">{String(i + 1).padStart(2, "0")}</p>
+              <h2 className="mt-4 font-display text-4xl font-light text-adriatic md:text-5xl">{b.title}</h2>
+              {b.lede && <p className="mt-4 max-w-xs leading-relaxed text-muted">{b.lede}</p>}
+            </Reveal>
+            <Reveal delay={0.1} className="lg:col-span-8">
+              {b.body?.map((p) => (
+                <p key={p} className="mb-5 leading-relaxed text-ink/85 md:text-lg">
+                  {p}
+                </p>
+              ))}
+              {b.points && (
+                <ul className="border-t border-stone/50">
+                  {b.points.map((pt) => (
+                    <li key={pt} className="flex gap-4 border-b border-stone/50 py-4 text-ink/85">
+                      <span className="mt-2.5 h-1 w-1 shrink-0 rounded-full bg-olive" />
+                      {pt}
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </Reveal>
+          </div>
+        </section>
+      ))}
+    </>
+  );
+}
+
+/** Dark clinical notice — same style as the Panchakarma note on the Treatments page. */
+export function ClinicalNote({ title, children }: { title: string; children: React.ReactNode }) {
+  return (
+    <section className="container-page pb-28">
+      <Reveal className="grid gap-8 rounded-[2rem] bg-adriatic-deep p-10 text-ivory md:grid-cols-[auto_1fr] md:p-14">
+        <Icon name="shield" className="h-10 w-10 text-gold" />
+        <div>
+          <h2 className="font-display text-3xl font-light md:text-4xl">{title}</h2>
+          <div className="mt-4 max-w-3xl leading-relaxed text-ivory/75">{children}</div>
+        </div>
+      </Reveal>
     </section>
   );
 }
