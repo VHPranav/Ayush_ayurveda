@@ -9,22 +9,22 @@ type Region = { name: string; label: string; body: string; photo: Photo };
 
 const regions: Region[] = [
   {
-    name: "The Bay of Kotor",
-    label: "Stone towns & still water",
-    body: "A UNESCO-listed bay of medieval stone towns, calm water and steep mountains — the heart of our coastal experience.",
-    photo: photos.kotorRooftops,
-  },
-  {
     name: "The Adriatic Coast",
     label: "Sea, light & olive groves",
-    body: "Historic islets, quiet coves and olive groves along a coastline warmed by the Mediterranean sun.",
-    photo: photos.svetiStefanDusk,
+    body: "Stone old towns, quiet coves and olive groves along a coastline warmed by the Mediterranean sun.",
+    photo: photos.budvaCoast,
+  },
+  {
+    name: "Lakes & Forests",
+    label: "Still water & pine",
+    body: "Quiet mountain lakes ringed by pine forest — calm, clean air and space to slow down.",
+    photo: photos.mountainLake,
   },
   {
     name: "Northern Mountains",
-    label: "Lakes, forests & clean air",
+    label: "Peaks & clean air",
     body: "Glacial lakes, ancient forests and high mountain air in the national parks of northern Montenegro.",
-    photo: photos.mountainLake,
+    photo: photos.durmitorLake,
   },
   {
     name: "Rivers & Canyons",

@@ -55,7 +55,7 @@ export default async function ProgrammePage(props: PageProps<"/programmes/[slug]
           <ParallaxFill src={p.photo.src} alt={p.photo.alt} preload quality={80} sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover" />
           <div className="absolute inset-0 bg-gradient-to-t from-adriatic-deep/40 to-transparent" />
           </div>
-          <p className="eyebrow absolute bottom-6 left-6 text-[0.6rem] text-ivory/85">AYUSH Montenegro · Hyatt Regency Kotor Bay</p>
+          <p className="eyebrow absolute bottom-6 left-6 text-[0.6rem] text-ivory/85">AYUSH Montenegro</p>
         </div>
       </section>
 
@@ -153,7 +153,7 @@ export default async function ProgrammePage(props: PageProps<"/programmes/[slug]
                   )
                 )}
                 <p className="mt-6 rounded-xl bg-ivory/5 p-4 text-[0.8rem] leading-relaxed text-ivory/65">
-                  Opening offer: 15% off standard rates. Hotel accommodation and full-board meals are priced separately.
+                  Opening offer: 15% off standard rates. Accommodation and meals are priced separately.
                 </p>
                 <Button href="/contact" variant="solid" className="mt-6 w-full justify-center">
                   Book a Consultation
@@ -190,7 +190,7 @@ export default async function ProgrammePage(props: PageProps<"/programmes/[slug]
         </div>
       </section>
 
-      <BookingBand photo={photos.heroBay} secondary={{ label: "All programmes", href: "/programmes" }} />
+      <BookingBand photo={photos.stoneTerrace} secondary={{ label: "All programmes", href: "/programmes" }} />
     </main>
   );
 }

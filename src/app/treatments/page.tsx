@@ -44,7 +44,7 @@ const treatmentInfo: ContentBlock[] = [
 
 export const metadata: Metadata = {
   title: "Treatments",
-  description: "The Ayurvedic treatment menu at AYUSH Ayurveda Clinic, Montenegro — Hyatt Regency Kotor Bay.",
+  description: "The Ayurvedic treatment menu at AYUSH Ayurveda Clinic, Montenegro.",
 };
 
 export default function TreatmentsPage() {

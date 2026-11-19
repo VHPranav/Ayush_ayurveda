@@ -68,8 +68,7 @@ export default function AyushPage() {
       <section className="container-page grid gap-10 py-28 md:py-36 lg:grid-cols-12">
         <Reveal className="lg:col-span-5">
           <p className="font-display text-3xl leading-snug font-light text-adriatic md:text-4xl">
-            Traditional Ayurveda and Yoga Therapy for people across Europe — in residential programmes on the Bay of
-            Kotor, Montenegro.
+            Traditional Ayurveda and Yoga Therapy for people across Europe — in residential programmes in Montenegro.
           </p>
         </Reveal>
         <Reveal delay={0.15} className="self-end lg:col-span-5 lg:col-start-8">
@@ -172,7 +171,7 @@ export default function AyushPage() {
         </div>
       </section>
 
-      <BookingBand photo={photos.kotorRooftops} secondary={{ label: "Explore programmes", href: "/programmes" }} />
+      <BookingBand photo={photos.durmitorLake} secondary={{ label: "Explore programmes", href: "/programmes" }} />
     </main>
   );
 }

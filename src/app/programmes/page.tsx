@@ -104,12 +104,12 @@ export default function ProgrammesPage() {
       </section>
 
       <p className="container-page pb-16 text-[0.82rem] text-muted">
-        Prices shown are opening rates (15% below standard) per person for the programme. Hotel accommodation and
-        full-board meals are priced separately. {TIERS.length} programme lengths available, subject to individual
+        Prices shown are opening rates (15% below standard) per person for the programme. Accommodation and meals are
+        priced separately. {TIERS.length} programme lengths available, subject to individual
         assessment.
       </p>
 
-      <BookingBand photo={photos.svetiStefanDusk} />
+      <BookingBand photo={photos.mountainLake} />
     </main>
   );
 }

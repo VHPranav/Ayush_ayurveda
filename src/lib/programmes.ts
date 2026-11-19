@@ -1,7 +1,7 @@
 import { photos, type Photo } from "./images";
 
-// Source: "Integrated Clinical Wellness" deck + programme infographics (Hyatt Regency Kotor Bay).
-// Prices are per person for the programme; hotel accommodation and full-board meals are priced separately.
+// Source: "Integrated Clinical Wellness" deck + programme infographics.
+// Prices are per person for the programme; accommodation and meals are priced separately.
 // Where the deck and an infographic disagreed, the deck's figure (= standard price less the 15% opening promo) is used.
 
 export type Tier = "Discover" | "Reset" | "Transform" | "Renew" | "Complete";
@@ -96,7 +96,7 @@ export const programmes: Programme[] = [
     short: "Stress Management",
     tagline: "A personalised journey to Shamana and mind–body wellbeing",
     intro:
-      "Restorative daily therapies, Yoga, Pranayama and meditation, with nutrition and sleep guidance — set against the calm of the Kotor–Risan Bay.",
+      "Restorative daily therapies, Yoga, Pranayama and meditation, with nutrition and sleep guidance, in the calm of Montenegro’s coast and mountains.",
     focus: "Rest · Nervous-system calm · Sleep",
     photo: photos.shirodhara,
     levels: [
@@ -159,7 +159,7 @@ export const programmes: Programme[] = [
       {
         label: "Pillar 3",
         title: "Environmental vitality",
-        steps: [{ title: "The setting as support", body: "Kotor Bay’s coastal breeze and crisp mountain air are part of the restorative experience." }],
+        steps: [{ title: "The setting as support", body: "Montenegro’s coastal breeze and crisp mountain air are part of the restorative experience." }],
       },
     ],
     inclusions: [
@@ -297,7 +297,7 @@ export const programmes: Programme[] = [
       {
         label: "Setting",
         title: "The Montenegro sanctuary",
-        steps: [{ title: "Boka Kotorska", body: "Hosted at Hyatt Regency Kotor Bay, against the cliffs of the Bay of Kotor and the historic islet of Gospa od Škrpjela." }],
+        steps: [{ title: "Sea and mountains", body: "Hosted in Montenegro, where the Adriatic coast, clean mountain air and quiet landscapes support rest and renewal." }],
       },
       {
         label: "Method",
@@ -320,7 +320,7 @@ export const programmes: Programme[] = [
     short: "Panchakarma",
     tagline: "A physician-supervised traditional cleansing journey",
     intro:
-      "Panchakarma in its complete traditional form — preparation, prescribed cleansing and recovery — delivered under daily physician supervision in the calm of the Bay of Kotor.",
+      "Panchakarma in its complete traditional form — preparation, prescribed cleansing and recovery — delivered under daily physician supervision in the calm of Montenegro.",
     focus: "Poorvakarma · Shodhana · Paschatkarma",
     photo: photos.panchakarmaRoom,
     levels: [

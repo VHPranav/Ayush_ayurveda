@@ -5,6 +5,8 @@ export type NavItem = {
   href: string;
   /** Opens another website (in a new tab). */
   external?: boolean;
+  /** Shown in the menu but not linked yet (destination to be added later). */
+  pending?: boolean;
   children?: { label: string; href: string; note?: string }[];
 };
 
@@ -35,6 +37,8 @@ export const navItems: NavItem[] = [
   },
   { label: "Conditions", href: "/conditions" },
   { label: "Programmes", href: "/programmes" },
+  // VIVUM: link to be added once its website is live.
+  { label: "Vivum", href: "#vivum", pending: true },
   { label: "UK", href: UK_SITE, external: true },
   { label: "Contact", href: "/contact" },
 ];

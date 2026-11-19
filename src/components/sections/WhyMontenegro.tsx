@@ -7,7 +7,7 @@ const themes = [
   {
     title: "Sea & Mediterranean Climate",
     body: "Clear Adriatic water, fresh sea air and a mild Mediterranean climate create the conditions for rest, recovery and renewed vitality.",
-    photo: photos.ladyOfTheRocks,
+    photo: photos.budvaCoast,
   },
   {
     title: "Mountains, Rivers & Pure Nature",
@@ -17,7 +17,7 @@ const themes = [
   {
     title: "Eastern Wisdom, Experienced in Montenegro",
     body: "Authentic Ayurveda and yoga, practised in a distinctly European setting of stone terraces, olive groves and sea.",
-    photo: photos.stoneTerrace,
+    photo: photos.yogaByTheSea,
   },
 ];
 

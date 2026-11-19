@@ -21,25 +21,9 @@ export function coverSizes(photo: Photo, frameRatio: number, widths: [string | n
   return widths.map(([mq, vw]) => `${mq ? `${mq} ` : ""}${Math.min(400, Math.round(vw * factor))}vw`).join(", ");
 }
 
-// Hero footage: Our Lady of the Rocks, Bay of Kotor — self-hosted in /public/media.
-// Source: Pexels video 25460349 (Pexels licence), re-encoded H.264 High,
-// 1080p @ 6 Mbps / 720p @ 3 Mbps, fast-start, no audio.
-export const heroVideo = {
-  desktop: "/media/hero-kotor-1080.mp4",
-  mobile: "/media/hero-kotor-720.mp4",
-  poster: {
-    src: "/media/hero-kotor-poster.jpg",
-    alt: "Aerial view of the island church of Our Lady of the Rocks in the Bay of Kotor, beneath the mountains",
-  },
-};
-
 export const photos = {
   // Montenegro
-  heroBay: { ...landscape("kotor-terrace-a"), alt: "The Bay of Kotor near Perast from a stone terrace, with the two island churches beneath the mountains" },
-  ladyOfTheRocks: { ...landscape("kotor-terrace-b"), alt: "Our Lady of the Rocks and St George islands in the Bay of Kotor, framed by olive and cypress trees" },
-  kotorRooftops: { ...landscape("kotor-rooftops"), alt: "Terracotta rooftops of Kotor old town above the bay and mountains" },
   budvaCoast: { ...landscape("budva-old-town"), alt: "Budva old town on the Adriatic coast, framed by umbrella pines" },
-  svetiStefanDusk: { ...landscape("sveti-stefan-dusk"), alt: "Sveti Stefan island village at dusk on the Adriatic coast" },
   durmitorLake: { ...landscape("durmitor-black-lake"), alt: "Morning mist over the Black Lake beneath the peaks of Durmitor" },
   mountainLake: { ...landscape("mountain-lake-jetty"), alt: "A quiet mountain lake with a wooden jetty, framed by pine forest" },
   taraRiver: { ...landscape("tara-canyon"), alt: "The Tara River winding through its forested canyon" },
@@ -51,7 +35,7 @@ export const photos = {
   // Ayurveda
   abhyanga: { ...portrait("ayurveda-abhyanga"), alt: "A therapist applying warm oil during an Abhyanga massage on a wooden treatment table" },
   shirodhara: { ...portrait("ayurveda-shirodhara"), alt: "Warm oil flowing from a brass vessel during a Shirodhara treatment" },
-  panchakarmaRoom: { ...landscape("ayurveda-panchakarma-room"), alt: "A Panchakarma treatment room of stone and timber, with a window onto the Bay of Kotor" },
+  panchakarmaRoom: { ...landscape("ayurveda-panchakarma-room"), alt: "A Panchakarma treatment room of stone and timber, with a window onto the sea and mountains" },
   nadiPariksha: { ...portrait("ayurveda-nadi-pariksha"), alt: "An Ayurvedic physician reading a client's pulse during consultation" },
   herbalOil: { ...portrait("ayurveda-herbal-oil"), alt: "Herbal oil being prepared in a copper pot beside a stone mortar and pestle" },
   herbsFlatlay: { ...landscape("ayurveda-herbs-flatlay"), alt: "Turmeric, ashwagandha, tulsi, neem and ghee in brass and stone bowls on linen" },

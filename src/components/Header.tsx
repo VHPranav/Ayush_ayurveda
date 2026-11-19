@@ -50,7 +50,14 @@ export function Header() {
           <nav aria-label="Main" className="hidden xl:block">
             <ul className="flex items-center gap-7">
               {navItems.map((item) => (
-                <li key={item.href} className="relative" onMouseEnter={() => setMenu(item.children ? item.label : null)}>
+                <li key={item.label} className="relative" onMouseEnter={() => setMenu(item.children ? item.label : null)}>
+                  {item.pending ? (
+                    <span
+                      className={`relative cursor-default py-2 font-label text-[0.69rem] tracking-[0.2em] uppercase ${light ? "text-ivory/90" : "text-adriatic/80"}`}
+                    >
+                      {item.label}
+                    </span>
+                  ) : (
                   <Link
                     href={item.href}
                     {...(item.external ? { target: "_blank", rel: "noopener noreferrer", "aria-label": `${item.label} — opens ayushuk.com in a new tab` } : {})}
@@ -63,6 +70,7 @@ export function Header() {
                     {item.label}
                     {item.external && <span aria-hidden className="ml-1 inline-block text-[0.6rem]">↗</span>}
                   </Link>
+                  )}
 
                   {item.children && (
                     <AnimatePresence>
@@ -141,15 +149,19 @@ export function Header() {
               <ul className="space-y-4">
                 {navItems.map((item, i) => (
                   <motion.li
-                    key={item.href}
+                    key={item.label}
                     initial={{ opacity: 0, y: 16 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.1 + i * 0.05, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
                   >
+                    {item.pending ? (
+                      <span className="font-display text-4xl font-light">{item.label}</span>
+                    ) : (
                     <Link href={item.href} {...(item.external ? { target: "_blank", rel: "noopener noreferrer", "aria-label": `${item.label} — opens ayushuk.com in a new tab` } : {})} className="font-display text-4xl font-light">
                       {item.label}
                       {item.external && <span aria-hidden className="ml-2 align-top text-lg text-ivory/60">↗</span>}
                     </Link>
+                    )}
                     {item.children && (
                       <ul className="mt-2 flex flex-wrap gap-x-5 gap-y-1">
                         {item.children
