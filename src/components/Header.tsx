@@ -163,12 +163,12 @@ export function Header() {
                     </Link>
                     )}
                     {item.children && (
-                      <ul className="mt-2 flex flex-wrap gap-x-5 gap-y-1">
+                      <ul className="mt-3 mb-2 flex flex-col gap-1 border-l border-ivory/15 pl-4">
                         {item.children
                           .filter((c) => c.href !== item.href)
                           .map((c) => (
                             <li key={c.href}>
-                              <Link href={c.href} className="eyebrow text-[0.62rem] text-ivory/60">
+                              <Link href={c.href} className="eyebrow block py-2 text-[0.62rem] text-ivory/60 transition-colors hover:text-ivory">
                                 {c.label}
                               </Link>
                             </li>

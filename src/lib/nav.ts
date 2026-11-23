@@ -39,7 +39,7 @@ export const navItems: NavItem[] = [
   { label: "Programmes", href: "/programmes" },
   // VIVUM: link to be added once its website is live.
   { label: "Vivum", href: "#vivum", pending: true },
-  { label: "UK", href: UK_SITE, external: true },
+  { label: "Ayush UK", href: UK_SITE, external: true },
   { label: "Contact", href: "/contact" },
 ];
 

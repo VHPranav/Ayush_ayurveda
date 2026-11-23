@@ -90,6 +90,18 @@ export function Footer() {
             ))}
           </ul>
         </div>
+
+        <p className="mt-8 text-center text-[0.8rem] text-ivory/50">
+          Powered by{" "}
+          <a
+            href="https://www.outriftmedia.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline decoration-ivory/30 underline-offset-4 transition-colors hover:text-ivory"
+          >
+            Outrift Media
+          </a>
+        </p>
       </div>
     </footer>
   );
