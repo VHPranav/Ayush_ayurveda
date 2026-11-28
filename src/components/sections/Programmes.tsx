@@ -17,7 +17,7 @@ const programmes: Programme[] = [
     subtitle: "Personalised Ayurveda & Yoga Therapy",
     body: "Professional consultation and individually prescribed treatment in calm spaces of stone, wood and natural materials.",
     tag: "Programmes",
-    photo: photos.abhyanga,
+    photo: photos.herbalOil,
   },
   {
     title: "Yoga Therapy",

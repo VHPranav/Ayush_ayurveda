@@ -74,7 +74,7 @@ export default function KayakalpaPage() {
       </ClinicalNote>
 
       <BookingBand
-        photo={photos.abhyanga}
+        photo={photos.potliTreatment}
         title="Begin with a consultation."
         body="Your physician will advise whether a Kayakalpa programme is appropriate for you."
         secondary={{ label: "Kaya Kalpa programme", href: "/programmes/kaya-kalpa" }}

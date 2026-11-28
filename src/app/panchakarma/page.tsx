@@ -83,7 +83,7 @@ export default function PanchakarmaPage() {
 
       <section className="container-page pb-24">
         <Reveal className="relative aspect-[21/9] overflow-hidden rounded-[2rem]">
-          <ParallaxFill src={photos.pindaSweda.src} alt={photos.pindaSweda.alt} quality={80} sizes="100vw" className="object-cover" />
+          <ParallaxFill src={photos.potliTreatment.src} alt={photos.potliTreatment.alt} quality={80} sizes="100vw" className="object-cover" />
         </Reveal>
       </section>
 

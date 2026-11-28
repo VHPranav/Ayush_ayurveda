@@ -39,8 +39,8 @@ export function Introduction() {
           <div className="relative pb-16 lg:col-span-6 lg:pb-24">
             <RevealImage className="relative aspect-[4/5] w-[82%] overflow-hidden rounded-t-full">
               <ParallaxFill
-                src={photos.abhyanga.src}
-                alt={photos.abhyanga.alt}
+                src={photos.pindaSweda.src}
+                alt={photos.pindaSweda.alt}
                 quality={75}
                 sizes="(min-width: 1024px) 40vw, 82vw"
                 className="object-cover"

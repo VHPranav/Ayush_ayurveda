@@ -52,6 +52,10 @@ export const photos = {
   skadarBoat: { src: "/images/unsplash/skadar-boat.jpg", w: 2400, h: 1551, alt: "A boatman on the still water of Lake Skadar beneath the mountains" },
   montenegroRiver: { src: "/images/unsplash/montenegro-river.jpg", w: 2400, h: 3600, alt: "A clear mountain river in a green Montenegrin valley, with wildflowers in the foreground" },
 
+  // Treatment with a male therapist — Unsplash License. Credit: Charanjeet Dhiman,
+  // shot at AyurVAID Kalmatia, Almora, India. Landscape: use in wide frames only.
+  potliTreatment: { src: "/images/unsplash/ayurveda-potli.jpg", w: 2400, h: 1600, alt: "A male Ayurvedic therapist applying warm herbal poultices (Pinda Sweda) to a patient's shoulders" },
+
   // Team (client-supplied photography)
   prabodh: { src: "/images/flow/prabodh.jpeg", w: 1244, h: 1600, alt: "Portrait of Dr Prabodh Raghavan, Consultant Ayurvedic Physician" },
 } satisfies Record<string, Photo>;
