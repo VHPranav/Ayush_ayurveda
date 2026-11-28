@@ -155,6 +155,9 @@ export default async function ProgrammePage(props: PageProps<"/programmes/[slug]
                 <p className="mt-6 rounded-xl bg-ivory/5 p-4 text-[0.8rem] leading-relaxed text-ivory/65">
                   Opening offer: 15% off standard rates. Accommodation and meals are priced separately.
                 </p>
+                <p className="mt-3 text-[0.8rem] leading-relaxed text-ivory/65">
+                  The programme, therapies and duration are recommended by our physician after your consultation.
+                </p>
                 <Button href="/contact" variant="solid" className="mt-6 w-full justify-center">
                   Book a Consultation
                 </Button>
@@ -190,7 +193,7 @@ export default async function ProgrammePage(props: PageProps<"/programmes/[slug]
         </div>
       </section>
 
-      <BookingBand photo={photos.stoneTerrace} secondary={{ label: "All programmes", href: "/programmes" }} />
+      <BookingBand photo={photos.mountainLake} secondary={{ label: "All programmes", href: "/programmes" }} />
     </main>
   );
 }

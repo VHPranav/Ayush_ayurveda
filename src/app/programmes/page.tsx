@@ -38,7 +38,8 @@ export default function ProgrammesPage() {
           <FadeIn delay={0.45} className="self-end lg:col-span-4 lg:col-start-9">
             <p className="leading-relaxed text-muted md:text-lg">
               Every client follows the same master pathway — consultation, preparation, therapy, recovery and follow-up —
-              yet no two journeys are identical. Choose the length that suits your goals; your Vaidya shapes the rest.
+              yet no two journeys are identical. Your physician recommends the programme, the therapies and the length of
+              your stay after an individual assessment — the options below are shown for information.
             </p>
           </FadeIn>
         </div>

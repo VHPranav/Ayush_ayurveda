@@ -3,7 +3,7 @@
 import { motion, useMotionValue, useTransform, type MotionValue } from "motion/react";
 import { OliveBranch } from "../ui/OliveBranch";
 
-const phrases = ["Eastern Wisdom.", "Montenegrin Nature.", "Personalised Wellbeing."];
+const phrases = ["The Wisdom of India.", "The Tradition of Ayurveda.", "Here in Montenegro."];
 
 function Phrase({ text, index, progress }: { text: string; index: number; progress: MotionValue<number> }) {
   const start = 0.12 + index * 0.16;
@@ -45,8 +45,8 @@ export function StatementContent({ progress }: { progress: MotionValue<number> }
           style={{ opacity: para, y: paraY }}
           className="mx-auto mt-10 max-w-xl text-base leading-relaxed text-muted md:text-lg"
         >
-          Authentic Ayurvedic knowledge and practitioner-led clinical care, delivered within the calm natural setting
-          of Montenegro.
+          India’s authentic Ayurvedic knowledge, traditional therapies and physician-led care — brought to our clinic
+          in Podgorica, Montenegro.
         </motion.p>
       </div>
     </div>

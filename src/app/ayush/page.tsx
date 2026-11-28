@@ -60,7 +60,7 @@ export default function AyushPage() {
           </h1>
         </div>
         <div className="hero-reveal relative mx-auto aspect-[21/9] w-full max-w-[110rem] overflow-hidden">
-          <ParallaxFill src={photos.panchakarmaRoom.src} alt={photos.panchakarmaRoom.alt} preload quality={80} sizes="100vw" className="object-cover" />
+          <ParallaxFill src={photos.herbsFlatlay.src} alt={photos.herbsFlatlay.alt} preload quality={80} sizes="100vw" className="object-cover" />
         </div>
       </section>
 
@@ -140,7 +140,7 @@ export default function AyushPage() {
             </ul>
           </Reveal>
         </div>
-        <ParallaxImage photo={photos.yogaTherapy} quality={80} sizes={coverSizes(photos.yogaTherapy, 0.9, [["(min-width: 1024px)", 50], [null, 100]], 1.24)} className="order-1 min-h-[60vh] lg:order-2 lg:min-h-[85vh]" />
+        <ParallaxImage photo={photos.mountainLake} quality={80} sizes={coverSizes(photos.mountainLake, 0.9, [["(min-width: 1024px)", 50], [null, 100]], 1.24)} className="order-1 min-h-[60vh] lg:order-2 lg:min-h-[85vh]" />
       </section>
 
       {/* Team */}

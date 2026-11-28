@@ -29,7 +29,7 @@ export function Introduction() {
             one philosophy.
           </h2>
           <p className="mt-10 max-w-xl text-base leading-relaxed text-muted md:text-lg">
-            Ayurveda provides the knowledge and the method. Montenegro provides the setting, the atmosphere and the
+            India provides the knowledge, the method and the tradition. Montenegro provides the setting, the atmosphere and the
             feeling. AYUSH brings the two together in practitioner-led therapy, shaped around each individual.
           </p>
         </Reveal>

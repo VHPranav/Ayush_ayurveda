@@ -34,7 +34,7 @@ const conditions = [
     name: "Respiratory Wellbeing",
     days: [14],
     who: "People who want to support breathing comfort and capacity through traditional therapies and breath practice.",
-    includes: ["Assessment and review of current treatment", "Nasya and supporting therapies where suitable", "Pranayama and breath training", "Clean sea and mountain air", "Home breathing routine"],
+    includes: ["Assessment and review of current treatment", "Nasya and supporting therapies where suitable", "Pranayama and breath training", "Clean mountain air", "Home breathing routine"],
   },
   {
     name: "Women’s Wellbeing",

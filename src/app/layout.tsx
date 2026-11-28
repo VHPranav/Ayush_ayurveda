@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     template: "%s — AYUSH Ayurveda Clinic",
   },
   description:
-    "AYUSH Ayurveda Clinic, Montenegro: traditional Ayurvedic medicine and personalised clinical care — consultations, Panchakarma, Ayurvedic therapies and therapeutic Yoga.",
+    "Bringing India and Ayurveda to Montenegro. AYUSH Ayurveda Clinic in Podgorica — authentic Ayurvedic consultations, Panchakarma, traditional therapies and therapeutic Yoga.",
 };
 
 export const viewport: Viewport = {

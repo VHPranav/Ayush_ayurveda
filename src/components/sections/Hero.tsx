@@ -21,10 +21,10 @@ export function Hero() {
 
   return (
     <section ref={ref} className="relative h-[100svh] min-h-[640px] overflow-hidden bg-[#070b0c] text-ivory">
-      {/* Montenegro coast still — slow cinematic reveal, light parallax on scroll */}
+      {/* Inland Montenegro still (the clinic is in Podgorica, not on the coast) — slow cinematic reveal, light parallax on scroll */}
       <motion.div className="absolute inset-0" style={{ y: videoY }}>
         <div className="hero-reveal absolute inset-0">
-          <Image src={photos.stoneTerrace.src} alt={photos.stoneTerrace.alt} fill preload quality={80} sizes="100vw" className="object-cover object-center" />
+          <Image src={photos.mountainLake.src} alt={photos.mountainLake.alt} fill preload quality={80} sizes="100vw" className="object-cover object-center" />
         </div>
       </motion.div>
 
@@ -53,7 +53,7 @@ export function Hero() {
               className="fade-rise mt-5 max-w-md font-display text-xl leading-snug tracking-[0.02em] text-ivory/90 italic md:mt-7 md:text-2xl 2xl:max-w-xl 2xl:text-3xl"
               style={{ animationDelay: "1.15s" }}
             >
-              Ayurveda Clinic — traditional Ayurvedic medicine and personalised clinical care in Montenegro.
+              Bringing India and Ayurveda to Montenegro — an Ayurveda Clinic in Podgorica.
             </p>
           </div>
 

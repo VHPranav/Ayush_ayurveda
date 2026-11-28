@@ -7,6 +7,26 @@ import { FadeIn } from "@/components/ui/FadeIn";
 import { Reveal } from "@/components/ui/Reveal";
 import { BookingBand, ContentSections, Icon, type ContentBlock } from "@/components/ui/Kit";
 
+// Client's own wording for the core treatments (client correction email, Nov 2026).
+const signature = [
+  {
+    name: "Oil / Dhara Treatment",
+    body: "Traditional Ayurvedic oil treatments using warm oils and therapeutic techniques to promote relaxation and well-being. Dhara is a controlled, gentle stream of water applied as part of a specialised therapeutic procedure, according to the physician’s recommendation.",
+  },
+  {
+    name: "Panchakarma",
+    body: "Traditional Ayurvedic cleansing and therapeutic programmes carried out according to individual needs and professional assessment.",
+  },
+  {
+    name: "Shirodhara",
+    body: "A traditional Ayurvedic therapy involving a continuous, gentle stream of oil poured over the forehead in a calming treatment experience.",
+  },
+  {
+    name: "Shirovasti",
+    body: "A traditional Ayurvedic treatment in which warm oil is retained over the head within a specially designed enclosure.",
+  },
+];
+
 // Strategy plan §5: purpose, process, duration, suitability, contraindications and aftercare.
 const treatmentInfo: ContentBlock[] = [
   {
@@ -60,10 +80,25 @@ export default function TreatmentsPage() {
             <span className="h-px flex-1 bg-stone" />
           </div>
           <p className="mx-auto mt-8 max-w-2xl leading-relaxed text-muted md:text-lg">
-            Individual services are consultation-led entry points and complements to a programme — never substitutes for
-            the structured AYUSH journey. We recommend beginning with an initial consultation.
+            This menu explains the treatments available at AYUSH. All treatments, combinations of therapies and their
+            duration are recommended or approved by our physician after an individual assessment — they cannot be
+            selected or booked directly. Your care begins with a consultation.
           </p>
         </FadeIn>
+      </section>
+
+      {/* Our Ayurvedic treatments — client-supplied descriptions */}
+      <section className="container-page pb-24">
+        <h2 className="text-center font-display text-4xl font-light text-adriatic md:text-5xl">Our Ayurvedic treatments</h2>
+        <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {signature.map((t, i) => (
+            <Reveal key={t.name} delay={0.06 * i} className="rounded-[1.5rem] border border-stone/70 bg-ivory p-7">
+              <Icon name="leaf" className="h-6 w-6 text-olive" />
+              <p className="mt-5 font-display text-2xl text-adriatic">{t.name}</p>
+              <p className="mt-2 leading-relaxed text-muted">{t.body}</p>
+            </Reveal>
+          ))}
+        </div>
       </section>
 
       {/* Sticky tier bar */}

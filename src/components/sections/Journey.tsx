@@ -23,7 +23,7 @@ const steps: { phase: string; title: string; body: string; photo: Photo }[] = [
     phase: "Programme",
     title: "Designed around you",
     body: "A personalised programme combining therapy, yoga, nutrition and time in Montenegro’s nature.",
-    photo: photos.yogaTherapy,
+    photo: photos.herbsFlatlay,
   },
   {
     phase: "Treatment",
@@ -35,7 +35,7 @@ const steps: { phase: string; title: string; body: string; photo: Photo }[] = [
     phase: "Follow-up",
     title: "Wellbeing that lasts",
     body: "Ongoing guidance and reviews to help you carry the benefits home and sustain them over time.",
-    photo: photos.ayurvedicLunch,
+    photo: photos.durmitorLake,
   },
 ];
 

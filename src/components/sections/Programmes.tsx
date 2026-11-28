@@ -17,7 +17,7 @@ const programmes: Programme[] = [
     subtitle: "Personalised Ayurveda & Yoga Therapy",
     body: "Professional consultation and individually prescribed treatment in calm spaces of stone, wood and natural materials.",
     tag: "Programmes",
-    photo: photos.panchakarmaRoom,
+    photo: photos.abhyanga,
   },
   {
     title: "Yoga Therapy",
@@ -25,7 +25,7 @@ const programmes: Programme[] = [
     subtitle: "Therapeutic Hatha · Pranayama · Meditation",
     body: "Yoga as therapy, not exercise — adapted to your physical ability and integrated with your treatment plan.",
     tag: "Yoga Therapy",
-    photo: photos.yogaByTheSea,
+    photo: photos.mountainLake,
   },
   {
     title: "Individual Treatments",

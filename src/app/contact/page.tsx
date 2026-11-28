@@ -37,7 +37,7 @@ export default function ContactPage() {
         <div className="container-page grid gap-10 md:grid-cols-3">
           <Reveal>
             <p className="eyebrow text-[0.6rem] text-stone-deep">AYUSH Montenegro</p>
-            <p className="mt-4 font-display text-2xl text-adriatic">Montenegro</p>
+            <p className="mt-4 font-display text-2xl text-adriatic">Podgorica, Montenegro</p>
             <p className="mt-2 leading-relaxed text-muted">Online consultations available. Details of in-person care are shared when you book.</p>
           </Reveal>
           <Reveal delay={0.08}>

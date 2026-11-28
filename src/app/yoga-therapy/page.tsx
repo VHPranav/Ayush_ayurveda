@@ -51,9 +51,9 @@ export default function YogaTherapyPage() {
       <section className="container-page pb-24">
         <Reveal>
           <ParallaxImage
-            photo={photos.yogaTherapy}
+            photo={photos.mountainLake}
             quality={80}
-            sizes={coverSizes(photos.yogaTherapy, 21 / 9, [[null, 100]], 1.24)}
+            sizes={coverSizes(photos.mountainLake, 21 / 9, [[null, 100]], 1.24)}
             className="aspect-[21/9] rounded-[2rem]"
           />
         </Reveal>
@@ -61,7 +61,7 @@ export default function YogaTherapyPage() {
 
       <ContentSections blocks={blocks} />
 
-      <BookingBand photo={photos.yogaByTheSea} title="Start with a consultation." body="Your practitioner will recommend the right Yoga Therapy for you." />
+      <BookingBand photo={photos.taraRiver} title="Start with a consultation." body="Your practitioner will recommend the right Yoga Therapy for you." />
     </main>
   );
 }

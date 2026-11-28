@@ -76,7 +76,7 @@ export function BookingPaths() {
             </select>
           </label>
           <label className="block">
-            <span className={label}>Interested in</span>
+            <span className={label}>Area of interest (optional)</span>
             <select name="Interest" className={field} defaultValue="Not sure yet">
               <option>Not sure yet</option>
               {programmes.map((p) => (
@@ -92,6 +92,10 @@ export function BookingPaths() {
         </div>
 
         <p className="mt-5 text-[0.85rem] leading-relaxed text-muted">
+          This is a request for a consultation. Your treatments, any combination of therapies and their duration are
+          recommended by our physician after an individual assessment.
+        </p>
+        <p className="mt-3 text-[0.85rem] leading-relaxed text-muted">
           Please don’t include detailed medical information here — your practitioner will collect it securely before your
           consultation.
         </p>

@@ -96,7 +96,7 @@ export const programmes: Programme[] = [
     short: "Stress Management",
     tagline: "A personalised journey to Shamana and mind–body wellbeing",
     intro:
-      "Restorative daily therapies, Yoga, Pranayama and meditation, with nutrition and sleep guidance, in the calm of Montenegro’s coast and mountains.",
+      "Restorative daily therapies, Yoga, Pranayama and meditation, with nutrition and sleep guidance, at our clinic in Podgorica, Montenegro.",
     focus: "Rest · Nervous-system calm · Sleep",
     photo: photos.shirodhara,
     levels: [
@@ -159,7 +159,7 @@ export const programmes: Programme[] = [
       {
         label: "Pillar 3",
         title: "Environmental vitality",
-        steps: [{ title: "The setting as support", body: "Montenegro’s coastal breeze and crisp mountain air are part of the restorative experience." }],
+        steps: [{ title: "The setting as support", body: "A calm clinic in Podgorica, with Montenegro’s clean mountain air close by, supports the restorative experience." }],
       },
     ],
     inclusions: [
@@ -297,7 +297,7 @@ export const programmes: Programme[] = [
       {
         label: "Setting",
         title: "The Montenegro sanctuary",
-        steps: [{ title: "Sea and mountains", body: "Hosted in Montenegro, where the Adriatic coast, clean mountain air and quiet landscapes support rest and renewal." }],
+        steps: [{ title: "Podgorica, Montenegro", body: "Hosted at our clinic in Podgorica, where calm surroundings and nearby mountains and rivers support rest and renewal." }],
       },
       {
         label: "Method",
@@ -322,7 +322,7 @@ export const programmes: Programme[] = [
     intro:
       "Panchakarma in its complete traditional form — preparation, prescribed cleansing and recovery — delivered under daily physician supervision in the calm of Montenegro.",
     focus: "Poorvakarma · Shodhana · Paschatkarma",
-    photo: photos.panchakarmaRoom,
+    photo: photos.pindaSweda,
     levels: [
       { tier: "Renew", days: 21, standard: 8400, promo: 7140, allowance: 350 },
       {

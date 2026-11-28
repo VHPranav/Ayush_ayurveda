@@ -18,7 +18,7 @@ export function FinalCta() {
   return (
     <section ref={ref} id="book" className="relative flex min-h-[92svh] items-end overflow-hidden bg-adriatic-deep text-ivory">
       <motion.div style={{ scale: imageScale }} className="absolute inset-0">
-        <Image src={photos.budvaCoast.src} alt={photos.budvaCoast.alt} fill quality={80} sizes="100vw" className="object-cover" />
+        <Image src={photos.taraRiver.src} alt={photos.taraRiver.alt} fill quality={80} sizes="100vw" className="object-cover" />
       </motion.div>
 
       {/* Soft dusk light */}
@@ -40,7 +40,7 @@ export function FinalCta() {
             <span className="block">A Brighter Tomorrow.</span>
           </h2>
           <p className="mt-6 max-w-lg text-base leading-relaxed text-ivory/85 md:text-lg">
-            Practitioner-led Ayurvedic care in the calm of Montenegro. Your care begins with a consultation.
+            Authentic Ayurveda from India, at our clinic in Podgorica. Your care begins with a consultation.
           </p>
           <div className="mt-10 flex flex-col gap-3 sm:flex-row">
             <Button href="/contact" variant="solid">
@@ -50,9 +50,9 @@ export function FinalCta() {
         </Reveal>
         <Reveal delay={0.3} className="hidden self-end text-right md:col-span-4 md:col-start-9 md:block">
           <p className="font-display text-3xl leading-snug text-ivory/90 italic">
-            Montenegro
+            Bringing India
             <br />
-            restores balance
+            and Ayurveda to Montenegro
           </p>
           <span className="mt-4 ml-auto block h-px w-12 bg-gold" />
         </Reveal>

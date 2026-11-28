@@ -66,7 +66,7 @@ export default function ClinicalGovernancePage() {
       />
       <ContentSections blocks={blocks} />
       <div className="pb-4" />
-      <BookingBand photo={photos.panchakarmaRoom} title="Questions about your care?" body="Contact the clinic and we will be glad to help." />
+      <BookingBand photo={photos.herbsFlatlay} title="Questions about your care?" body="Contact the clinic and we will be glad to help." />
     </main>
   );
 }

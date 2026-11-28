@@ -77,12 +77,13 @@ export default function PanchakarmaPage() {
       <PageIntro
         title="Panchakarma"
         accent="Chikitsa"
+        lede="Traditional Ayurvedic cleansing and therapeutic programmes carried out according to individual needs and professional assessment."
         note="Panchakarma is never sold as a stand-alone service. It is offered only within physician-supervised, multi-day programmes after an eligibility assessment."
       />
 
       <section className="container-page pb-24">
         <Reveal className="relative aspect-[21/9] overflow-hidden rounded-[2rem]">
-          <ParallaxFill src={photos.panchakarmaRoom.src} alt={photos.panchakarmaRoom.alt} quality={80} sizes="100vw" className="object-cover" />
+          <ParallaxFill src={photos.pindaSweda.src} alt={photos.pindaSweda.alt} quality={80} sizes="100vw" className="object-cover" />
         </Reveal>
       </section>
 

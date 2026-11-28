@@ -46,12 +46,12 @@ const benefits = [
   {
     icon: "integrated",
     title: "Integrated Approach",
-    body: "Ayurveda and yoga combined with the Mediterranean lifestyle and modern medical awareness.",
+    body: "Authentic Ayurveda from India and therapeutic yoga, combined with modern medical awareness.",
   },
   {
     icon: "location",
     title: "Exceptional Location",
-    body: "The sea, mountains and pristine nature of Montenegro as part of every programme.",
+    body: "A calm clinic in Podgorica, with Montenegro’s mountains, rivers and lakes close by.",
   },
   {
     icon: "lasting",

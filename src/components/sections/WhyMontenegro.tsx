@@ -5,19 +5,19 @@ import { Button } from "../ui/Button";
 
 const themes = [
   {
-    title: "Sea & Mediterranean Climate",
-    body: "Clear Adriatic water, fresh sea air and a mild Mediterranean climate create the conditions for rest, recovery and renewed vitality.",
-    photo: photos.budvaCoast,
+    title: "Authentic Ayurveda from India",
+    body: "Traditional Indian Ayurvedic knowledge, therapies and herbal practice, brought to Montenegro by experienced physicians.",
+    photo: photos.herbsFlatlay,
+  },
+  {
+    title: "Podgorica, at the Heart of Montenegro",
+    body: "Our clinic is in Podgorica, Montenegro’s capital — easy to reach from across the country and from the city’s airport.",
+    photo: photos.taraRiver,
   },
   {
     title: "Mountains, Rivers & Pure Nature",
-    body: "National parks, glacial lakes, mountain air and pristine rivers offer a natural environment for deep renewal.",
+    body: "Rivers, hills and mountains surround the city, with national parks and quiet lakes close by for rest during your care.",
     photo: photos.durmitorLake,
-  },
-  {
-    title: "Eastern Wisdom, Experienced in Montenegro",
-    body: "Authentic Ayurveda and yoga, practised in a distinctly European setting of stone terraces, olive groves and sea.",
-    photo: photos.yogaByTheSea,
   },
 ];
 
@@ -33,7 +33,7 @@ export function WhyMontenegro() {
           </Reveal>
           <Reveal delay={0.15} className="self-end md:col-span-5 md:col-start-8">
             <p className="text-base leading-relaxed text-muted md:text-lg">
-              From the Adriatic coast to pristine mountains, rivers and quiet landscapes, Montenegro offers a calm
+              From our clinic in Podgorica to the rivers, lakes and mountains beyond the city, Montenegro offers a calm
               natural setting for rest and recovery during your care.
             </p>
             <Button href="/programmes" variant="outline-dark" className="mt-8">

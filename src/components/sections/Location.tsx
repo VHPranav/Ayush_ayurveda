@@ -9,10 +9,10 @@ type Region = { name: string; label: string; body: string; photo: Photo };
 
 const regions: Region[] = [
   {
-    name: "The Adriatic Coast",
-    label: "Sea, light & olive groves",
-    body: "Stone old towns, quiet coves and olive groves along a coastline warmed by the Mediterranean sun.",
-    photo: photos.budvaCoast,
+    name: "Podgorica",
+    label: "Our clinic in the capital",
+    body: "Consultations and Ayurvedic treatments at our clinic in Podgorica, Montenegro’s capital city.",
+    photo: photos.nadiPariksha,
   },
   {
     name: "Lakes & Forests",
@@ -49,12 +49,12 @@ export function Location() {
       <div className="container-page relative grid gap-16 lg:grid-cols-12 lg:gap-10">
         <Reveal className="lg:col-span-5 lg:self-center">
           <h2 className="heading-display">
-            From the sea
+            From Podgorica
             <span className="block">to the summits</span>
           </h2>
           <p className="mt-6 max-w-md leading-relaxed text-muted">
-            Our programmes take place across Montenegro — on the coast, by the lakes and in the mountains — so that the
-            landscape itself becomes part of your care.
+            Our clinic is in Podgorica, Montenegro’s capital. Beyond the city, the country’s lakes, rivers and mountains
+            offer quiet places to rest during your care.
           </p>
         </Reveal>
 
