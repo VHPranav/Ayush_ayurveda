@@ -56,6 +56,12 @@ export const photos = {
   // shot at AyurVAID Kalmatia, Almora, India. Landscape: use in wide frames only.
   potliTreatment: { src: "/images/unsplash/ayurveda-potli.jpg", w: 2400, h: 1600, alt: "A male Ayurvedic therapist applying warm herbal poultices (Pinda Sweda) to a patient's shoulders" },
 
+  // Pexels License (free, commercial use). Credit: Rishikesh Yoga Valley School,
+  // shot in Jonk, Uttarakhand, India. Crops well to portrait frames.
+  katiBasti: { src: "/images/pexels/ayurveda-kati-basti.jpg", w: 2400, h: 1800, alt: "A male Ayurvedic therapist preparing Kati Basti, a ring of dough that holds warm medicated oil on the lower back" },
+  // Pexels License. Pre-cropped to a square around the therapist's hands for the small intro frame.
+  maleTherapistMassage: { src: "/images/pexels/massage-male-therapist.jpg", w: 1600, h: 1600, alt: "A male therapist in a white uniform giving a back massage to a resting client" },
+
   // Team (client-supplied photography)
   prabodh: { src: "/images/flow/prabodh.jpeg", w: 1244, h: 1600, alt: "Portrait of Dr Prabodh Raghavan, Consultant Ayurvedic Physician" },
 } satisfies Record<string, Photo>;

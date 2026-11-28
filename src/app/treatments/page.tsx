@@ -193,7 +193,7 @@ export default function TreatmentsPage() {
       </section>
 
       <BookingBand
-        photo={photos.stoneBath}
+        photo={photos.katiBasti}
         title="Start with a consultation."
         body="Your Vaidya will recommend the treatments — or the programme — that suit you best."
         secondary={{ label: "See programmes", href: "/programmes" }}

@@ -51,8 +51,8 @@ export function Introduction() {
               className="absolute right-0 bottom-0 aspect-square w-[46%] overflow-hidden border-[6px] border-ivory md:border-8"
             >
               <ParallaxFill
-                src={photos.shirodhara.src}
-                alt={photos.shirodhara.alt}
+                src={photos.maleTherapistMassage.src}
+                alt={photos.maleTherapistMassage.alt}
                 quality={70}
                 sizes="(min-width: 1024px) 22vw, 46vw"
                 className="object-cover"
