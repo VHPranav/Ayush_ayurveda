@@ -24,7 +24,7 @@ export function Hero() {
       {/* Inland Montenegro still (the clinic is in Podgorica, not on the coast) — slow cinematic reveal, light parallax on scroll */}
       <motion.div className="absolute inset-0" style={{ y: videoY }}>
         <div className="hero-reveal absolute inset-0">
-          <Image src={photos.mountainLake.src} alt={photos.mountainLake.alt} fill preload quality={80} sizes="100vw" className="object-cover object-center" />
+          <Image src={photos.skadarBoat.src} alt={photos.skadarBoat.alt} fill preload quality={80} sizes="100vw" className="object-cover object-center" />
         </div>
       </motion.div>
 

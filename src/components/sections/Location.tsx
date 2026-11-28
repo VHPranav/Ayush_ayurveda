@@ -12,13 +12,13 @@ const regions: Region[] = [
     name: "Podgorica",
     label: "Our clinic in the capital",
     body: "Consultations and Ayurvedic treatments at our clinic in Podgorica, Montenegro’s capital city.",
-    photo: photos.nadiPariksha,
+    photo: photos.podgoricaBridge,
   },
   {
     name: "Lakes & Forests",
     label: "Still water & pine",
     body: "Quiet mountain lakes ringed by pine forest — calm, clean air and space to slow down.",
-    photo: photos.mountainLake,
+    photo: photos.skadarHorseshoe,
   },
   {
     name: "Northern Mountains",

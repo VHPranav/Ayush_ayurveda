@@ -43,6 +43,15 @@ export const photos = {
   yogaTherapy: { ...landscape("ayurveda-yoga-therapy"), alt: "A yoga therapist guiding a client's posture in a stone pavilion above the sea" },
   ayurvedicLunch: { ...portrait("ayurveda-lunch"), alt: "An Ayurvedic lunch of kitchari and vegetables in brass bowls on a terrace" },
 
+  // Podgorica & nearby — Unsplash License (free, commercial use). Files in /public/images/unsplash.
+  // Credits: Denis Ismailaj (bridge), Anton Luk (city), Boudewijn Boer (Skadar bend),
+  // Elena Mozhvilo (Skadar boat), Maria Ivanova (river).
+  podgoricaBridge: { src: "/images/unsplash/podgorica-bridge.jpg", w: 2400, h: 1350, alt: "The Millennium Bridge over the Morača river in Podgorica, Montenegro" },
+  podgoricaCity: { src: "/images/unsplash/podgorica-city.jpg", w: 2400, h: 1600, alt: "Podgorica's residential edge beneath the mountains, beyond a field of golden grass" },
+  skadarHorseshoe: { src: "/images/unsplash/skadar-horseshoe.jpg", w: 2400, h: 1600, alt: "The horseshoe bend of the Crnojević river at Lake Skadar National Park, near Podgorica" },
+  skadarBoat: { src: "/images/unsplash/skadar-boat.jpg", w: 2400, h: 1551, alt: "A boatman on the still water of Lake Skadar beneath the mountains" },
+  montenegroRiver: { src: "/images/unsplash/montenegro-river.jpg", w: 2400, h: 3600, alt: "A clear mountain river in a green Montenegrin valley, with wildflowers in the foreground" },
+
   // Team (client-supplied photography)
   prabodh: { src: "/images/flow/prabodh.jpeg", w: 1244, h: 1600, alt: "Portrait of Dr Prabodh Raghavan, Consultant Ayurvedic Physician" },
 } satisfies Record<string, Photo>;

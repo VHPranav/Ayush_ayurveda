@@ -12,12 +12,12 @@ const themes = [
   {
     title: "Podgorica, at the Heart of Montenegro",
     body: "Our clinic is in Podgorica, Montenegro’s capital — easy to reach from across the country and from the city’s airport.",
-    photo: photos.taraRiver,
+    photo: photos.podgoricaCity,
   },
   {
     title: "Mountains, Rivers & Pure Nature",
     body: "Rivers, hills and mountains surround the city, with national parks and quiet lakes close by for rest during your care.",
-    photo: photos.durmitorLake,
+    photo: photos.montenegroRiver,
   },
 ];
 
