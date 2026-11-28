@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import {  ParallaxFill } from "@/components/ui/ParallaxFill";
 import { coverSizes, photos } from "@/lib/images";
 import { ParallaxImage } from "@/components/ui/ParallaxImage";
@@ -150,10 +151,20 @@ export default function AyushPage() {
             <SectionHead title="Practitioners you can know by name" />
             <Reveal delay={0.1} className="mt-12 rounded-[2rem] bg-ivory p-8">
               <div className="flex items-center gap-5">
-                <span className="flex h-16 w-16 items-center justify-center rounded-full bg-olive font-display text-2xl text-ivory">PR</span>
+                <span className="relative h-20 w-20 shrink-0 overflow-hidden rounded-full bg-sand">
+                  <Image
+                    src={photos.prabodh.src}
+                    alt={photos.prabodh.alt}
+                    fill
+                    quality={80}
+                    sizes="80px"
+                    className="object-cover object-top"
+                  />
+                </span>
                 <div>
                   <p className="font-display text-2xl text-adriatic">Dr Prabodh Raghavan</p>
                   <p className="text-muted">Consultant Ayurvedic Physician</p>
+                  <p className="eyebrow mt-2 text-[0.6rem] text-olive">BAMS · 25+ years of experience</p>
                 </div>
               </div>
             </Reveal>
